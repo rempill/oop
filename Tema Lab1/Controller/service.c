@@ -28,19 +28,24 @@ int compareDestinationDesc(const void *a, const void *b) {
     return strcmp(tempb->destination, tempa->destination);
 }
 
-void addOffer(char type[],char destination[],char departure_date[],float price,Offer_list* l) {
+int addOffer(char type[],char destination[],char departure_date[],float price,Offer_list* l) {
     Offer offer;
     strcpy(offer.type,type);
     strcpy(offer.destination,destination);
     strcpy(offer.departure_date,departure_date);
     offer.price=price;
-    if (validateOffer(offer)) {
-        return;
+    Error err=validateOffer(offer);
+    if (err!=SUCCESS) {
+        return err;
     }
-    Add(offer,l);
+    int check=Add(offer,l);
+    if (check) {
+        return SUCCESS;
+    }
+    return REPO_ERROR;
 }
 
-void updateOffer(char old_type[],char old_destination[],char new_type[],char new_destination[],char new_departure_date[],float new_price,Offer_list* l) {
+int updateOffer(char old_type[],char old_destination[],char new_type[],char new_destination[],char new_departure_date[],float new_price,Offer_list* l) {
     Offer old_offer;
     strcpy(old_offer.type,old_type);
     strcpy(old_offer.destination,old_destination);
@@ -49,23 +54,29 @@ void updateOffer(char old_type[],char old_destination[],char new_type[],char new
     strcpy(new_offer.destination,new_destination);
     strcpy(new_offer.departure_date,new_departure_date);
     new_offer.price=new_price;
-    if (validateOffer(new_offer)==1) {
-        return;
+    Error err=validateOffer(new_offer);
+    if (err!=SUCCESS) {
+        return err;
     }
-    Update(old_offer,new_offer,l);
+    int check=Update(old_offer,new_offer,l);
+    if (check) {
+        return SUCCESS;
+    }
+    return REPO_ERROR;
 }
 
-void removeOffer(char type[],char destination[],Offer_list* l) {
+int removeOffer(char type[],char destination[],Offer_list* l) {
     Offer offer;
     strcpy(offer.type,type);
     strcpy(offer.destination,destination);
-    Remove(offer,l);
+    int check=Remove(offer,l);
+    if (check) {
+        return SUCCESS;
+    }
+    return REPO_ERROR;
 }
 
-Offer_list* sortOffersByPrice(Offer_list* l,int asc_desc) {
-    Offer_list* sorted=malloc(sizeof(Offer_list));
-    sorted->offers=malloc(sizeof(Offer)*l->length);
-    sorted->capacity=l->capacity;
+void sortOffersByPrice(Offer_list* l,int asc_desc,Offer_list* sorted) {
     for (int i=0;i<l->length;i++) {
         sorted->offers[i]=l->offers[i];
     }
@@ -76,13 +87,9 @@ Offer_list* sortOffersByPrice(Offer_list* l,int asc_desc) {
     else {
         qsort(sorted->offers,sorted->length, sizeof(Offer), comparePrice);
     }
-    return sorted;
 }
 
-Offer_list* sortOffersByDestination(Offer_list* l,int asc_desc) {
-    Offer_list* sorted=malloc(sizeof(Offer_list));
-    sorted->offers=malloc(sizeof(Offer)*l->length);
-    sorted->capacity=l->capacity;
+void sortOffersByDestination(Offer_list* l,int asc_desc,Offer_list* sorted) {
     for (int i=0;i<l->length;i++) {
         sorted->offers[i]=l->offers[i];
     }
@@ -93,14 +100,9 @@ Offer_list* sortOffersByDestination(Offer_list* l,int asc_desc) {
     else {
         qsort(sorted->offers,sorted->length, sizeof(Offer), compareDestination);
     }
-    return sorted;
 }
 
-Offer_list* filterByDestination(Offer_list* l,char destination[]) {
-    Offer_list* filtered=malloc(sizeof(Offer_list));
-    filtered->offers=malloc(l->length*sizeof(Offer));
-    filtered->length=l->length;
-    filtered->capacity=l->capacity;
+void filterByDestination(Offer_list* l,char destination[],Offer_list* filtered) {
     int j=0;
     for (int i=0;i<l->length;++i) {
         if (!strcmp(destination,l->offers[i].destination)) {
@@ -109,14 +111,9 @@ Offer_list* filterByDestination(Offer_list* l,char destination[]) {
         }
     }
     filtered->length=j;
-    return filtered;
 }
 
-Offer_list* filterByType(Offer_list* l,char type[]) {
-    Offer_list* filtered=malloc(sizeof(Offer_list));
-    filtered->offers=malloc(l->length*sizeof(Offer));
-    filtered->length=l->length;
-    filtered->capacity=l->capacity;
+void filterByType(Offer_list* l,char type[],Offer_list* filtered) {
     int j=0;
     for (int i=0;i<l->length;++i) {
         if (!strcmp(type,l->offers[i].type)) {
@@ -125,14 +122,9 @@ Offer_list* filterByType(Offer_list* l,char type[]) {
         }
     }
     filtered->length=j;
-    return filtered;
 }
 
-Offer_list* filterByPrice(Offer_list* l,float price) {
-    Offer_list* filtered=malloc(sizeof(Offer_list));
-    filtered->offers=malloc(l->length*sizeof(Offer));
-    filtered->length=l->length;
-    filtered->capacity=l->capacity;
+void filterByPrice(Offer_list* l,float price,Offer_list* filtered) {
     int j=0;
     for (int i=0;i<l->length;++i) {
         if (l->offers[i].price==price) {
@@ -141,5 +133,4 @@ Offer_list* filterByPrice(Offer_list* l,float price) {
         }
     }
     filtered->length=j;
-    return filtered;
 }

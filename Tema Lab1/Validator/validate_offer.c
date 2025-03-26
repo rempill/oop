@@ -5,38 +5,26 @@
 #include "validate_offer.h"
 
 int validateOffer(Offer offer) {
-    char errors[1000]="Validation errors:";
-    if (strlen(offer.type)==0) {
-        strcat(errors,"Type cannot be empty; ");
+    Error err=SUCCESS;
+    if (!strlen(offer.type) ||( strcmp(offer.type,"city break") && strcmp(offer.type,"mountain") && strcmp(offer.type,"sea side"))) {
+        err|=INVALID_TYPE;
     }
-    if (strlen(offer.destination)==0) {
-        strcat(errors,"Destination cannot be empty; ");
-    }
-    if (strlen(offer.departure_date)==0) {
-        strcat(errors,"Departure date cannot be empty; ");
-    }
-    if (offer.price<=0.0) {
-        strcat(errors,"Price must be a positive nr; ");
+    if (!strlen(offer.destination)) {
+       err|=INVALID_DESTINATION;
     }
     int day=0,month=0,year=0;
-    if (sscanf(offer.departure_date,"%d.%d.%d",&day,&month,&year)!=3) {
-        strcat(errors,"Date must be in the format dd.mm.yyyy; ");
+    if (!strlen(offer.departure_date) || sscanf(offer.departure_date,"%d.%d.%d",&day,&month,&year)!=3) {
+        err|=INVALID_DATE;
     }
-    if (day<1 || day>31) {
-        strcat(errors,"Day must be between 1 and 31; ");
+    if (offer.price<=0.0) {
+        err|=INVALID_PRICE;
     }
-    if (month<1 || month>12) {
-        strcat(errors,"Month must be between 1 and 12; ");
+    if (day<1 || day>31 || month<1 || month>12 || year<2025 && !(err&INVALID_DATE)) {
+        err|=INVALID_DATE;
     }
-    if (year<2025) {
-        strcat(errors,"Year must be greater than 2025; ");
+    if (err!=SUCCESS) {
+        err|=VALIDATION_ERROR;
+        return err;
     }
-    if (strcmp(offer.type,"city break") && strcmp(offer.type,"mountain") && strcmp(offer.type,"sea side")) {
-        strcat(errors,"Type must be city break, sea side or mountain; ");
-    }
-    if (strcmp(errors,"Validation errors:")) {
-        printf("%s\n",errors);
-        return 1;
-    }
-    return 0;
+    return SUCCESS;
 }

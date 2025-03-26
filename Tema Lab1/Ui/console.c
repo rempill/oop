@@ -10,6 +10,27 @@ void clearBuffer(char* buffer) {
     }
 }
 
+void handle(int err) {
+    if (err&INVALID_TYPE) {
+        printf("Invalid type\n");
+    }
+    if (err&INVALID_DESTINATION) {
+        printf("Invalid destination\n");
+    }
+    if (err&INVALID_DATE) {
+        printf("Invalid date\n");
+    }
+    if (err&INVALID_PRICE) {
+        printf("Invalid price\n");
+    }
+    if (err&REPO_ERROR) {
+        printf("Repository error\n");
+    }
+    if (err&VALIDATION_ERROR) {
+        printf("Validation error\n");
+    }
+}
+
 void printMenu() {
     printf("1. Add offer\n");
     printf("2. Update offer\n");
@@ -59,7 +80,13 @@ void addOfferUi(Offer_list *l) {
     clearBuffer(departure_date);
     departure_date[strlen(departure_date)-1]='\0';
     inputFloat("Price:",&price);
-    addOffer(type,destination,departure_date,price,l);
+    int err=addOffer(type,destination,departure_date,price,l);
+    if (err==SUCCESS) {
+        printf("Offer added successfully\n");
+    }
+    else {
+        handle(err);
+    }
 }
 
 void updateOfferUi(Offer_list *l) {
@@ -87,8 +114,13 @@ void updateOfferUi(Offer_list *l) {
     new_departure_date[strcspn(new_departure_date, "\n")] = '\0';
     clearBuffer(new_departure_date);
     inputFloat("New price:",&new_price);
-    updateOffer(old_type, old_destination, new_type, new_destination, new_departure_date, new_price, l);
-
+    int err=updateOffer(old_type, old_destination, new_type, new_destination, new_departure_date, new_price, l);
+    if (err!=SUCCESS) {
+        handle(err);
+    }
+    else {
+        printf("Offer updated successfully\n");
+    }
 }
 
 void removeOfferUi(Offer_list *l) {
@@ -101,7 +133,13 @@ void removeOfferUi(Offer_list *l) {
     fgets(destination, sizeof(destination), stdin);
     destination[strcspn(destination, "\n")] = '\0';
     clearBuffer(destination);
-    removeOffer(type,destination,l);
+    int err=removeOffer(type,destination,l);
+    if (err!=SUCCESS) {
+        handle(err);
+    }
+    else {
+        printf("Offer removed successfully\n");
+    }
 }
 
 void sortOfferMenu(Offer_list *l) {
@@ -114,20 +152,19 @@ void sortOfferMenu(Offer_list *l) {
     printf("1. Ascending\n2. Descending\n");
     scanf("%s",asc_desc);
     clearBuffer(asc_desc);
-    Offer_list* sorted=NULL;
+    Offer_list* sorted=createOfferList();
     if (!strcmp(command,"1")) {
-        sorted=sortOffersByPrice(l,strcmp(asc_desc,"1"));
+        sortOffersByPrice(l,strcmp(asc_desc,"1"),sorted);
         printOffers(sorted);
-        destroyOfferList(sorted);
     }
     else if (!strcmp(command,"2")) {
-        sorted=sortOffersByDestination(l,strcmp(asc_desc,"1"));
+        sortOffersByDestination(l,strcmp(asc_desc,"1"),sorted);
         printOffers(sorted);
-        destroyOfferList(sorted);
     }
     else {
         printf("Invalid command\n");
     }
+    destroyOfferList(sorted);
 }
 
 void filterOfferMenu(Offer_list *l) {
@@ -135,16 +172,15 @@ void filterOfferMenu(Offer_list *l) {
     printf("1. Filter by destination\n2. Filter by type\n3. Filter by price\n");
     scanf("%s",command);
     clearBuffer(command);
-    Offer_list* filtered=NULL;
+    Offer_list* filtered=createOfferList();
     if (!strcmp(command,"1")) {
         char destination[22];
         printf("Destination:");
         fgets(destination, sizeof(destination), stdin);
         destination[strcspn(destination, "\n")] = '\0';
         clearBuffer(destination);
-        filtered=filterByDestination(l,destination);
+        filterByDestination(l,destination,filtered);
         printOffers(filtered);
-        destroyOfferList(filtered);
     }
     else if (!strcmp(command,"2")) {
         char type[12];
@@ -152,20 +188,19 @@ void filterOfferMenu(Offer_list *l) {
         fgets(type, sizeof(type), stdin);
         type[strcspn(type, "\n")] = '\0';
         clearBuffer(type);
-        filtered=filterByType(l,type);
+        filterByType(l,type,filtered);
         printOffers(filtered);
-        destroyOfferList(filtered);
     }
     else if (!strcmp(command,"3")) {
         float price;
         inputFloat("Price:",&price);
-        filtered=filterByPrice(l,price);
+        filterByPrice(l,price,filtered);
         printOffers(filtered);
-        destroyOfferList(filtered);
     }
     else {
         printf("Invalid command\n");
     }
+    destroyOfferList(filtered);
 }
 
 void run(Offer_list *l) {

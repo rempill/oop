@@ -4,8 +4,11 @@
 
 #include "tests.h"
 
+#include "test_validator.h"
+
 void runTests() {
     runDomainTests();
+    runValidatorTests();
     runRepoTests();
     runServiceTests();
 }

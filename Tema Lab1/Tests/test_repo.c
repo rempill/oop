@@ -32,5 +32,10 @@ void runRepoTests() {
     strcpy(new_offer.type,"city break");
     Remove(new_offer,l);
     assert(l->length==0);
+    l->capacity=1;
+    Add(offer,l);
+    strcpy(offer.type,"city break");
+    Add(offer,l);
+    assert(l->capacity==2);
     destroyOfferList(l);
 }

@@ -3,5 +3,6 @@ project(Project1 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Project1 temalab1.c
-        lab1.c)
+add_executable(Project1
+        lab1.c
+        main.c)

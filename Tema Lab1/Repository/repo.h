@@ -8,14 +8,13 @@
 #include <assert.h>
 #include <string.h>
 #include "Domain/offer_list.h"
-#include "Errors/errors.h"
-void Add(Offer offer, Offer_list* l);
+int Add(Offer offer, Offer_list* l);
 //Adds an offer to the list
 //Input: offer-offer, l-offer list
-void Update(Offer old_offer,Offer new_offer,Offer_list* l);
+int Update(Offer old_offer,Offer new_offer,Offer_list* l);
 //Updates an offer from the list
 //Input: old_offer-offer, new_offer-offer, l-offer list
-void Remove(Offer offer,Offer_list* l);
+int Remove(Offer offer,Offer_list* l);
 //Removes an offer from the list
 //Input: offer-offer, l-offer list
 #endif //REPO_H
