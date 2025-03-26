@@ -1,0 +1,56 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste/teste_domeniu.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/teste_domeniu.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/teste_domeniu.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/19/2025.
+        -:    3://
+        -:    4:#include "teste_domeniu.h"
+        -:    5:
+function testCreateList called 1 returned 100% blocks executed 64%
+        1:    6:void testCreateList() {
+        1:    7:    List* lista = createList(destroyList,copyList);
+        1:    7-block  0
+call    0 returned 1
+       1*:    8:    assert(lista != NULL);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:    8-block  0
+call    2 never executed
+       1*:    9:    assert(lista->lungime == 0);
+        1:    9-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:    9-block  1
+call    2 never executed
+       1*:   10:    assert(lista->capacity == 2);
+        1:   10-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   10-block  1
+call    2 never executed
+       1*:   11:    assert(lista->elements != NULL);
+        1:   11-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   11-block  1
+call    2 never executed
+        1:   12:    resize(lista);
+        1:   12-block  0
+call    0 returned 1
+       1*:   13:    assert(lista->capacity == 4);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   13-block  0
+call    2 never executed
+        1:   14:    destroyList(lista);
+        1:   14-block  0
+call    0 returned 1
+        1:   15:}
+        -:   16:
+function ruleazaTesteCreateList called 1 returned 100% blocks executed 100%
+        1:   17:void ruleazaTesteCreateList() {
+        1:   18:    testCreateList();
+        1:   18-block  0
+call    0 returned 1
+        1:   19:}

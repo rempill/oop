@@ -1,0 +1,3008 @@
+<?xml version="1.0"?>
+
+<valgrindoutput>
+
+<protocolversion>4</protocolversion>
+<protocoltool>memcheck</protocoltool>
+
+<preamble>
+  <line>Memcheck, a memory error detector</line>
+  <line>Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: /mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</line>
+</preamble>
+
+<pid>35301</pid>
+<ppid>275</ppid>
+<tool>memcheck</tool>
+
+<args>
+  <vargv>
+    <exe>/usr/bin/valgrind.bin</exe>
+    <arg>--tool=memcheck</arg>
+    <arg>--xml=yes</arg>
+    <arg>--xml-file=/mnt/c/Users/Mihai/AppData/Local/Temp/clion-valgrinde5fa13b3-09d5-4c35-8723-a91b64a4d527/valgrind_output_%p</arg>
+    <arg>--gen-suppressions=all</arg>
+    <arg>--leak-check=full</arg>
+    <arg>--leak-resolution=med</arg>
+    <arg>--track-origins=yes</arg>
+    <arg>--vgdb=no</arg>
+  </vargv>
+  <argv>
+    <exe>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</exe>
+  </argv>
+</args>
+
+<status>
+  <state>RUNNING</state>
+  <time>00:00:00:00.049 </time>
+</status>
+
+<error>
+  <unique>0x0</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x10E7FA</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76864 is 4 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C250</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_modificaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>44</line>
+    </frame>
+    <frame>
+      <ip>0x10E77E</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>16</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E753</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>15</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x1</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x10F2E2</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>24</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EAA5</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76bd8 is 8 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr8</skind>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr8
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr8</skind>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr8
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x2</unique>
+  <tid>1</tid>
+  <kind>InvalidFree</kind>
+  <what>Invalid free() / delete / delete[] / realloc()</what>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F2ED</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>24</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EAA5</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76c30 is 0 bytes inside a block of size 8 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F2ED</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>24</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F259</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>16</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Free</skind>
+    <sframe> <fun>free</fun> </sframe>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Free
+   fun:free
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Free</skind>
+    <sframe> <fun>free</fun> </sframe>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Free
+   fun:free
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x10F2F2</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EAA5</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76be0 is 16 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr8</skind>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr8
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr8</skind>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr8
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x4</unique>
+  <tid>1</tid>
+  <kind>InvalidFree</kind>
+  <what>Invalid free() / delete / delete[] / realloc()</what>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F2FD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EAA5</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76c80 is 0 bytes inside a block of size 6 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F2FD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F293</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Free</skind>
+    <sframe> <fun>free</fun> </sframe>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Free
+   fun:free
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Free</skind>
+    <sframe> <fun>free</fun> </sframe>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Free
+   fun:free
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x5</unique>
+  <tid>1</tid>
+  <kind>InvalidFree</kind>
+  <what>Invalid free() / delete / delete[] / realloc()</what>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EAA5</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76bd0 is 0 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Free</skind>
+    <sframe> <fun>free</fun> </sframe>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Free
+   fun:free
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Free</skind>
+    <sframe> <fun>free</fun> </sframe>
+    <sframe> <fun>destroyTranzactie</fun> </sframe>
+    <sframe> <fun>copyList</fun> </sframe>
+    <sframe> <fun>service_adaugaTranzactie</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Free
+   fun:free
+   fun:destroyTranzactie
+   fun:copyList
+   fun:service_adaugaTranzactie
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x6</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x10C53A</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>sortare</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>80</line>
+    </frame>
+    <frame>
+      <ip>0x10EAC3</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>34</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76bd0 is 0 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>sortare</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:sortare
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>sortare</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:sortare
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x7</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x10C540</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>sortare</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>80</line>
+    </frame>
+    <frame>
+      <ip>0x10EAC3</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>34</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76cd0 is 0 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EAA5</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E9F4</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>29</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>sortare</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:sortare
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>sortare</fun> </sframe>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:sortare
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0xa</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x10EB3D</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>38</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4a76bd0 is 0 bytes inside a block of size 24 free'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x484988F</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x10F309</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x10BB6B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>copyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>63</line>
+    </frame>
+    <frame>
+      <ip>0x10C062</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>service_adaugaTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis</dir>
+      <file>servis.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10EA80</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <auxwhat>Block was alloc'd at</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E9B6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>28</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>runServiceTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:runServiceTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<fatal_signal>
+  <tid>1</tid>
+  <signo>6</signo>
+  <signame>SIGABRT</signame>
+  <sicode>-6</sicode>
+  <stack>
+    <frame>
+      <ip>0x48FEB2C</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>__pthread_kill_implementation</fn>
+      <dir>./nptl/./nptl</dir>
+      <file>pthread_kill.c</file>
+      <line>44</line>
+    </frame>
+    <frame>
+      <ip>0x48FEB2C</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>__pthread_kill_internal</fn>
+      <dir>./nptl/./nptl</dir>
+      <file>pthread_kill.c</file>
+      <line>78</line>
+    </frame>
+    <frame>
+      <ip>0x48FEB2C</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>pthread_kill@@GLIBC_2.34</fn>
+      <dir>./nptl/./nptl</dir>
+      <file>pthread_kill.c</file>
+      <line>89</line>
+    </frame>
+    <frame>
+      <ip>0x48A527D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>raise</fn>
+      <dir>./signal/../sysdeps/posix</dir>
+      <file>raise.c</file>
+      <line>26</line>
+    </frame>
+    <frame>
+      <ip>0x48888FE</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>abort</fn>
+      <dir>./stdlib/./stdlib</dir>
+      <file>abort.c</file>
+      <line>79</line>
+    </frame>
+    <frame>
+      <ip>0x488881A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>__assert_fail_base.cold</fn>
+      <dir>./assert/./assert</dir>
+      <file>assert.c</file>
+      <line>96</line>
+    </frame>
+    <frame>
+      <ip>0x489B516</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
+      <fn>__assert_fail</fn>
+      <dir>./assert/./assert</dir>
+      <file>assert.c</file>
+      <line>105</line>
+    </frame>
+    <frame>
+      <ip>0x10EB7D</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runServiceTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_servis.c</file>
+      <line>38</line>
+    </frame>
+    <frame>
+      <ip>0x10D8D9</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>5</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+</fatal_signal>
+
+
+<status>
+  <state>FINISHED</state>
+  <time>00:00:00:00.480 </time>
+</status>
+
+<error>
+  <unique>0x36</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>37 (24 direct, 13 indirect) bytes in 1 blocks are definitely lost in loss record 44 of 56</text>
+    <leakedbytes>37</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E07E</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>29</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x37</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 45 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DF57</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>24</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x38</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 46 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DC2E</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x39</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 47 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DC8C</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3a</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 48 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DCEA</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>12</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3b</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 49 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DD48</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>13</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3c</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 50 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DDA6</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>14</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3d</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>38 (24 direct, 14 indirect) bytes in 1 blocks are definitely lost in loss record 51 of 56</text>
+    <leakedbytes>38</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10DE49</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>16</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3f</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>64 (24 direct, 40 indirect) bytes in 1 blocks are definitely lost in loss record 53 of 56</text>
+    <leakedbytes>64</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10B819</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10BE0B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyRepo</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Repo</dir>
+      <file>repo.c</file>
+      <line>44</line>
+    </frame>
+    <frame>
+      <ip>0x10E4F7</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>45</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>destroyList</fun> </sframe>
+    <sframe> <fun>destroyRepo</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:destroyList
+   fun:destroyRepo
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>destroyList</fun> </sframe>
+    <sframe> <fun>destroyRepo</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:destroyList
+   fun:destroyRepo
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x42</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>523 (144 direct, 379 indirect) bytes in 6 blocks are definitely lost in loss record 56 of 56</text>
+    <leakedbytes>523</leakedbytes>
+    <leakedblocks>6</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4846828</ip>
+      <obj>/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10F203</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>createTranzactie</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>tranzactie.c</file>
+      <line>10</line>
+    </frame>
+    <frame>
+      <ip>0x10B819</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyList</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu</dir>
+      <file>list_tranzactie.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10BE0B</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>destroyRepo</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Repo</dir>
+      <file>repo.c</file>
+      <line>44</line>
+    </frame>
+    <frame>
+      <ip>0x10DED1</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>testrsize</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10E513</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runRepoTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste_repo.c</file>
+      <line>46</line>
+    </frame>
+    <frame>
+      <ip>0x10D8BD</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>runAllTests</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste</dir>
+      <file>teste.c</file>
+      <line>4</line>
+    </frame>
+    <frame>
+      <ip>0x10B5BC</ip>
+      <obj>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/Lab2_4</obj>
+      <fn>main</fn>
+      <dir>/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4</dir>
+      <file>main.c</file>
+      <line>10</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>destroyList</fun> </sframe>
+    <sframe> <fun>destroyRepo</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:destroyList
+   fun:destroyRepo
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>createTranzactie</fun> </sframe>
+    <sframe> <fun>destroyList</fun> </sframe>
+    <sframe> <fun>destroyRepo</fun> </sframe>
+    <sframe> <fun>testrsize</fun> </sframe>
+    <sframe> <fun>runRepoTests</fun> </sframe>
+    <sframe> <fun>runAllTests</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:createTranzactie
+   fun:destroyList
+   fun:destroyRepo
+   fun:testrsize
+   fun:runRepoTests
+   fun:runAllTests
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<errorcounts>
+  <pair>
+    <count>1</count>
+    <unique>0xa</unique>
+  </pair>
+  <pair>
+    <count>3</count>
+    <unique>0x6</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x7</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x5</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x3</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x2</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x0</unique>
+  </pair>
+</errorcounts>
+
+<suppcounts>
+</suppcounts>
+
+</valgrindoutput>
+
+

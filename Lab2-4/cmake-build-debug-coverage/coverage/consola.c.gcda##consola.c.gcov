@@ -1,0 +1,351 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Consola/consola.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Consola/consola.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Consola/consola.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/18/2025.
+        -:    3://
+        -:    4:#include "consola.h"
+        -:    5:/// Functie care afiseaza meniul
+        -:    6:/// @param
+function meniu called 0 returned 0% blocks executed 0%
+    #####:    7:void meniu() {
+    #####:    8:    printf("1. Adauga tranzactie\n");
+    %%%%%:    8-block  0
+call    0 never executed
+    #####:    9:    printf("2. Afiseaza tranzactii\n");
+call    0 never executed
+    #####:   10:    printf("3. Sterge tranzactie\n");
+call    0 never executed
+    #####:   11:    printf("4. Modifica tranzactie\n");
+call    0 never executed
+    #####:   12:    printf("5. Filtrare typ\n");
+call    0 never executed
+    #####:   13:    printf("6. Filtrare zi\n");
+call    0 never executed
+    #####:   14:    printf("7. Sortare\n");
+call    0 never executed
+    #####:   15:    printf("8. Undo\n");
+call    0 never executed
+    #####:   16:}
+        -:   17:/// functionalitate de adaugare a unei tranzactii
+        -:   18:/// @param lista lista de tranzactii
+function ui_adaugaTranzactie called 0 returned 0% blocks executed 0%
+    #####:   19:void ui_adaugaTranzactie(Service *service) {
+        -:   20:    int ziua;
+        -:   21:    float suma;
+    #####:   22:    char* tip=(char*)malloc(20);
+    #####:   23:    char* descriere=(char*)malloc(20);
+    #####:   24:    printf("Introduceti ziua: ");
+    %%%%%:   24-block  0
+call    0 never executed
+    #####:   25:    scanf("%d", &ziua);
+call    0 never executed
+    #####:   26:    printf("Introduceti suma: ");
+call    0 never executed
+    #####:   27:    scanf("%f", &suma);
+call    0 never executed
+    #####:   28:    printf("Introduceti tipul: ");
+call    0 never executed
+    #####:   29:    scanf("%s", tip);
+call    0 never executed
+    #####:   30:    printf("Introduceti descrierea: ");
+call    0 never executed
+    #####:   31:    scanf("%s", descriere);
+call    0 never executed
+    #####:   32:    Tranzactie* tranzactie=createTranzactie(ziua,suma,tip,descriere);
+call    0 never executed
+    #####:   33:    if (service_adaugaTranzactie(service, tranzactie) == 0) {
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   34:        printf("Tranzactie adaugata cu succes!\n");
+    %%%%%:   34-block  0
+call    0 never executed
+        -:   35:    } else {
+    #####:   36:        printf("Tranzactie nu a putut fi adaugata!\n");
+    %%%%%:   36-block  0
+call    0 never executed
+    #####:   37:        if (service_adaugaTranzactie(service, tranzactie) == 1) {
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   38:            printf("Ziua trebuie sa fie intre 1 si 31!\n");
+    %%%%%:   38-block  0
+call    0 never executed
+    #####:   39:        } else if (service_adaugaTranzactie(service, tranzactie) == 2) {
+    %%%%%:   39-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   40:            printf("Suma trebuie sa fie pozitiva!\n");
+    %%%%%:   40-block  0
+call    0 never executed
+    #####:   41:        } else if (service_adaugaTranzactie(service, tranzactie) == 3) {
+    %%%%%:   41-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   42:            printf("Tipul trebuie sa fie 'Intrare' sau 'Iesire'!\n");
+    %%%%%:   42-block  0
+call    0 never executed
+    #####:   43:        } else if (service_adaugaTranzactie(service, tranzactie) == 4) {
+    %%%%%:   43-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   44:            printf("Descrierea nu poate fi vida!\n");
+    %%%%%:   44-block  0
+call    0 never executed
+        -:   45:        }
+    #####:   46:        destroyTranzactie(tranzactie);
+    %%%%%:   46-block  0
+call    0 never executed
+        -:   47:    }
+    #####:   48:    free(tip);
+    #####:   49:    free(descriere);
+    #####:   50:}
+function ui_afiseazaTranzactii called 0 returned 0% blocks executed 0%
+    #####:   51:void ui_afiseazaTranzactii(Service *service) {
+    #####:   52:    List* elements=service->repo->elements;
+    #####:   53:    for (int i = 0; i < elements->lungime; i++) {
+    %%%%%:   53-block  0
+    %%%%%:   53-block  1
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:   54:        Tranzactie* lista=get(elements,i);
+    %%%%%:   54-block  0
+call    0 never executed
+    #####:   55:        printf("%d: Ziua: %d, Suma: %.2f, Tip: %s, Descriere: %s\n",i,
+    #####:   56:               lista->ziua, lista->suma,
+call    0 never executed
+        -:   57:               lista->tip, lista->descriere);
+        -:   58:    }
+    #####:   59:}
+        -:   60:
+        -:   61:///
+        -:   62:/// @param lista lista de tranzactii
+function ui_stergeTranzactie called 0 returned 0% blocks executed 0%
+    #####:   63:void ui_stergeTranzactie(Service *service) {
+    #####:   64:    ui_afiseazaTranzactii(service);
+    %%%%%:   64-block  0
+call    0 never executed
+        -:   65:    int nr;
+    #####:   66:    printf("Introduceti indexul tranzactiei pe care doriti sa o stergeti: ");
+call    0 never executed
+    #####:   67:    scanf("%d", &nr);
+call    0 never executed
+    #####:   68:    if (service_stergeTranzactie(service, nr)==0) {
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   69:        printf("Tranzactie stearsa cu succes!\n");
+    %%%%%:   69-block  0
+call    0 never executed
+        -:   70:    } else {
+    #####:   71:        printf("Tranzactie nu a putut fi stearsa!\n");
+    %%%%%:   71-block  0
+call    0 never executed
+        -:   72:    }
+    #####:   73:}
+        -:   74:///Functionalitate de modificare a unei tranzactii
+        -:   75:/// @param lista
+function ui_modificaTranzactie called 0 returned 0% blocks executed 0%
+    #####:   76:void ui_modificaTranzactie(Service *service) {
+    #####:   77:    ui_afiseazaTranzactii(service);
+    %%%%%:   77-block  0
+call    0 never executed
+        -:   78:    int nr;
+    #####:   79:    printf("Introduceti indexul tranzactiei pe care doriti sa o modificati: ");
+call    0 never executed
+    #####:   80:    scanf("%d", &nr);
+call    0 never executed
+    #####:   81:    int zi; float sum; char* tip=(char*)malloc(20),*desc=(char*)malloc(20);
+    #####:   82:    printf("Introduceti ziua: ");
+call    0 never executed
+    #####:   83:    scanf("%d", &zi);
+call    0 never executed
+    #####:   84:    printf("Introduceti suma: ");
+call    0 never executed
+    #####:   85:    scanf("%f", &sum);
+call    0 never executed
+    #####:   86:    printf("Introduceti tipul: ");
+call    0 never executed
+    #####:   87:    scanf("%s", tip);
+call    0 never executed
+    #####:   88:    printf("Introduceti descrierea: ");
+call    0 never executed
+    #####:   89:    scanf("%s", desc);
+call    0 never executed
+    #####:   90:    Tranzactie* tranzactie=createTranzactie(zi,sum,tip,desc);
+call    0 never executed
+    #####:   91:    if (service_modificaTranzactie(service, nr, tranzactie) == 0) {
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   92:        printf("Tranzactie modificata cu succes!\n");
+    %%%%%:   92-block  0
+call    0 never executed
+        -:   93:    } else {
+    #####:   94:        destroyTranzactie(tranzactie);
+    %%%%%:   94-block  0
+call    0 never executed
+    #####:   95:        printf("Tranzactie nu a putut fi modificata!\n");
+call    0 never executed
+        -:   96:    }
+    #####:   97:    free(tip);
+    #####:   98:    free(desc);
+    #####:   99:}
+        -:  100:///Functionalitate de filtrare a tranzactiilor
+        -:  101:///@param lista
+function ui_filtrare called 0 returned 0% blocks executed 0%
+    #####:  102:void ui_filtrare(Service *lista) {
+    #####:  103:    List *listaFiltrata=createList(destroyTranzactie,copyTranzactie);
+    %%%%%:  103-block  0
+call    0 never executed
+        -:  104:    char tip[20];
+    #####:  105:    printf("Introduceti tipul: ");
+call    0 never executed
+    #####:  106:    scanf("%s", &tip);
+call    0 never executed
+    #####:  107:    filtrate(lista, tip, listaFiltrata);
+call    0 never executed
+        -:  108:
+    #####:  109:    for (int i = 0; i < listaFiltrata->lungime; i++) {
+    %%%%%:  109-block  0
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:  110:        Tranzactie* tranzactie=get(listaFiltrata,i);
+    %%%%%:  110-block  0
+call    0 never executed
+    #####:  111:        printf("%d: Ziua: %d, Suma: %.2f, Tip: %s, Descriere: %s\n",i,
+    #####:  112:               tranzactie->ziua, tranzactie->suma,
+call    0 never executed
+        -:  113:               tranzactie->tip, tranzactie->descriere);
+        -:  114:    }
+    #####:  115:    destroyList(listaFiltrata);
+    %%%%%:  115-block  0
+call    0 never executed
+    #####:  116:}
+        -:  117:
+function ui_filtrare_new called 0 returned 0% blocks executed 0%
+    #####:  118:void ui_filtrare_new(Service* service) {
+    #####:  119:    List *listaFiltrata=createList(destroyTranzactie,copyTranzactie);
+    %%%%%:  119-block  0
+call    0 never executed
+        -:  120:    int zi;
+    #####:  121:    printf("Introduceti ziua: ");
+call    0 never executed
+    #####:  122:    scanf("%d",&zi);
+call    0 never executed
+    #####:  123:    filtrate_new(service,zi,listaFiltrata);
+call    0 never executed
+    #####:  124:    for (int i = 0; i < listaFiltrata->lungime; i++) {
+    %%%%%:  124-block  0
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:  125:        Tranzactie* tranzactie=get(listaFiltrata,i);
+    %%%%%:  125-block  0
+call    0 never executed
+    #####:  126:        printf("%d: Ziua: %d, Suma: %.2f, Tip: %s, Descriere: %s\n",i,
+    #####:  127:               tranzactie->ziua, tranzactie->suma,
+call    0 never executed
+        -:  128:               tranzactie->tip, tranzactie->descriere);
+        -:  129:    }
+    #####:  130:    destroyList(listaFiltrata);
+    %%%%%:  130-block  0
+call    0 never executed
+    #####:  131:}
+        -:  132:
+        -:  133:
+        -:  134:///Functionaliate de sortare
+function ui_sortare called 0 returned 0% blocks executed 0%
+    #####:  135:void ui_sortare(Service *service) {
+    #####:  136:    sortare(service);
+    %%%%%:  136-block  0
+call    0 never executed
+    #####:  137:    ui_afiseazaTranzactii(service);
+call    0 never executed
+    #####:  138:}
+        -:  139:
+function ui_undo called 0 returned 0% blocks executed 0%
+    #####:  140:void ui_undo(Service *service) {
+    #####:  141:    undo(service);
+    %%%%%:  141-block  0
+call    0 never executed
+    #####:  142:}
+        -:  143:
+function runn called 0 returned 0% blocks executed 0%
+    #####:  144:void runn(Service *service) {
+    %%%%%:  144-block  0
+        -:  145:    char comanda[3];
+        -:  146:
+        -:  147:    while (1) {
+    #####:  148:        meniu();
+    %%%%%:  148-block  0
+call    0 never executed
+    #####:  149:        printf("Introduceti comanda: ");
+call    0 never executed
+    #####:  150:        scanf("%s", &comanda);
+call    0 never executed
+    #####:  151:        if (strcmp(comanda, "1") == 0) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  152:            ui_adaugaTranzactie(service);
+    %%%%%:  152-block  0
+call    0 never executed
+    #####:  153:        } else if (strcmp(comanda, "2") == 0) {
+    %%%%%:  153-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  154:            ui_afiseazaTranzactii(service);
+    %%%%%:  154-block  0
+call    0 never executed
+    #####:  155:        } else if (strcmp(comanda, "3") == 0) {
+    %%%%%:  155-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  156:            ui_stergeTranzactie(service);
+    %%%%%:  156-block  0
+call    0 never executed
+    #####:  157:        } else if (strcmp(comanda, "4") == 0) {
+    %%%%%:  157-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  158:            ui_modificaTranzactie(service);
+    %%%%%:  158-block  0
+call    0 never executed
+    #####:  159:        } else if (strcmp(comanda, "5") == 0) {
+    %%%%%:  159-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  160:            ui_filtrare(service);
+    %%%%%:  160-block  0
+call    0 never executed
+    #####:  161:        } else if (strcmp(comanda,"6")==0) {
+    %%%%%:  161-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  162:            ui_filtrare_new(service);
+    %%%%%:  162-block  0
+call    0 never executed
+    #####:  163:        } else if (strcmp(comanda,"7")==0) {
+    %%%%%:  163-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  164:            ui_sortare(service);
+    %%%%%:  164-block  0
+call    0 never executed
+    #####:  165:        } else if (strcmp(comanda, "8") == 0) {
+    %%%%%:  165-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  166:            ui_undo(service);
+    %%%%%:  166-block  0
+call    0 never executed
+        -:  167:        } else {
+    #####:  168:            break;
+    %%%%%:  168-block  0
+        -:  169:        }
+        -:  170:    }
+    #####:  171:}

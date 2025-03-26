@@ -1,0 +1,142 @@
+        -:    0:Source:C:/Users/Mihai/CLionProjects/oop/Seminar1/main.c
+        -:    0:Graph:C:\Users\Mihai\CLionProjects\oop\Seminar1\cmake-build-debug-coverage\CMakeFiles\Seminar1.dir\main.c.gcno
+        -:    0:Data:C:\Users\Mihai\CLionProjects\oop\Seminar1\cmake-build-debug-coverage\CMakeFiles\Seminar1.dir\main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <assert.h>
+        -:    4:
+        -:    5:typedef struct {
+        -:    6:    int arr[10000];
+        -:    7:    int lg;
+        -:    8:}lista;
+        -:    9:
+        -:   10:
+        -:   11:/*
+        -:   12:void evenNums(int n, int v[],int* lg) {
+        -:   13:    int j=0;
+        -:   14:    for (int i=0;i<=n;i+=2) {
+        -:   15:        v[j]=i;
+        -:   16:        ++j;
+        -:   17:    }
+        -:   18:    *lg=j;
+        -:   19:}
+        -:   20:
+        -:   21:int* getPare(int nr) {
+        -:   22:    int rez[10000];
+        -:   23:    int j=0;
+        -:   24:    for (int i=0;i<=nr;i+=2) {
+        -:   25:        rez[j]=i;
+        -:   26:        j++;
+        -:   27:    }
+        -:   28:    return rez;
+        -:   29:}
+        -:   30:*/
+        -:   31:
+function getPare called 2 returned 100% blocks executed 100%
+        2:   32:lista getPare(int nr) {
+        -:   33:    lista rez;
+        2:   34:    int j=0;
+       10:   35:    for (int i=0;i<=nr;i+=2) {
+        2:   35-block  0
+       10:   35-block  1
+branch  0 taken 8
+branch  1 taken 2 (fallthrough)
+        8:   36:        rez.arr[j]=i;
+        8:   37:        j++;
+        8:   37-block  0
+        -:   38:    }
+        2:   39:    rez.lg=j;
+        2:   40:    return rez;
+        2:   40-block  0
+        -:   41:}
+        -:   42:
+function testPare called 1 returned 100% blocks executed 73%
+        1:   43:void testPare() {
+        1:   44:    lista l1=getPare(2);
+        1:   44-block  0
+call    0 returned 1
+       1*:   45:    assert(l1.arr[0]==0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   45-block  0
+call    2 never executed
+        1:   45-block  1
+       1*:   46:    assert(l1.lg==2);
+        1:   46-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   46-block  1
+call    2 never executed
+        1:   46-block  2
+       1*:   47:    assert(l1.arr[1]==2);
+        1:   47-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   47-block  1
+call    2 never executed
+        1:   47-block  2
+        1:   48:}
+        -:   49:
+function runAllTest called 1 returned 100% blocks executed 100%
+        1:   50:void runAllTest() {
+        1:   51:    testPare();
+        1:   51-block  0
+call    0 returned 1
+        1:   52:}
+        -:   53:
+function runApp called 1 returned 100% blocks executed 88%
+        2:   54:void runApp () {
+        -:   55:    char command;
+        -:   56:    while (1)
+        1:   57:    {
+        1:   57-block  0
+        2:   58:        printf("Menu\n1.Numere Pare\n2.Exit\n");
+        2:   58-block  0
+call    0 returned 2
+        2:   59:        scanf(" %c",&command);
+call    0 returned 2
+        2:   60:        if (command!='1') {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   61:            break;
+        1:   61-block  0
+        -:   62:        }
+        -:   63:        int n;
+        1:   64:        printf("Enter number: ");
+        1:   64-block  0
+call    0 returned 1
+        1:   65:        scanf("%d",&n);
+call    0 returned 1
+        1:   66:        if (n<0) {
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   67:            printf("Invalid value");
+    %%%%%:   67-block  0
+call    0 never executed
+    #####:   68:            break;
+        -:   69:        }
+        1:   70:        lista rez = getPare(n);
+        1:   70-block  0
+call    0 returned 1
+        -:   71:        //evenNums(n,v,&cate);
+        7:   72:        for (int i=0;i<rez.lg;++i) {
+        7:   72-block  0
+branch  0 taken 6
+branch  1 taken 1 (fallthrough)
+        6:   73:            printf("%d, ",rez.arr[i]);
+        6:   73-block  0
+call    0 returned 6
+        -:   74:        }
+        -:   75:    }
+        1:   76:}
+        -:   77:
+function main called 1 returned 100% blocks executed 100%
+        1:   78:int main() {
+        1:   79:    runAllTest();
+        1:   79-block  0
+call    0 returned 1
+        1:   80:    runApp();
+call    0 returned 1
+        1:   81:    return 0;
+        -:   82:}

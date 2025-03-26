@@ -1,0 +1,87 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Validator/validate_offer.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Validator/validate_offer.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Validator/validate_offer.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 07.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "validate_offer.h"
+        -:    6:
+function validateOffer called 16 returned 100% blocks executed 96%
+       16:    7:int validateOffer(Offer offer) {
+       16:    8:    Error err=SUCCESS;
+       16:    9:    if (!strlen(offer.type) ||( strcmp(offer.type,"city break") && strcmp(offer.type,"mountain") && strcmp(offer.type,"sea side"))) {
+       16:    9-block  0
+branch  0 taken 16 (fallthrough)
+branch  1 taken 0
+       16:    9-block  1
+branch  2 taken 15 (fallthrough)
+branch  3 taken 1
+       15:    9-block  2
+branch  4 taken 13 (fallthrough)
+branch  5 taken 2
+       13:    9-block  3
+branch  6 taken 2 (fallthrough)
+branch  7 taken 11
+        2:   10:        err|=INVALID_TYPE;
+        2:   10-block  0
+        -:   11:    }
+       16:   12:    if (!strlen(offer.destination)) {
+       16:   12-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 15
+        1:   13:       err|=INVALID_DESTINATION;
+        1:   13-block  0
+        -:   14:    }
+       16:   15:    int day=0,month=0,year=0;
+       16:   16:    if (!strlen(offer.departure_date) || sscanf(offer.departure_date,"%d.%d.%d",&day,&month,&year)!=3) {
+       16:   16-block  0
+branch  0 taken 16 (fallthrough)
+branch  1 taken 0
+       16:   16-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 15
+        1:   17:        err|=INVALID_DATE;
+        1:   17-block  0
+        -:   18:    }
+       16:   19:    if (offer.price<=0.0) {
+       16:   19-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 14
+        2:   20:        err|=INVALID_PRICE;
+        2:   20-block  0
+        -:   21:    }
+      16*:   22:    if (day<1 || day>31 || month<1 || month>12 || year<2025 && !(err&INVALID_DATE)) {
+       16:   22-block  0
+branch  0 taken 16 (fallthrough)
+branch  1 taken 0
+       16:   22-block  1
+branch  2 taken 16 (fallthrough)
+branch  3 taken 0
+       16:   22-block  2
+branch  4 taken 15 (fallthrough)
+branch  5 taken 1
+       15:   22-block  3
+branch  6 taken 14 (fallthrough)
+branch  7 taken 1
+       14:   22-block  4
+branch  8 taken 0 (fallthrough)
+branch  9 taken 14
+    %%%%%:   22-block  5
+branch 10 never executed (fallthrough)
+branch 11 never executed
+        2:   23:        err|=INVALID_DATE;
+        2:   23-block  0
+        -:   24:    }
+       16:   25:    if (err!=SUCCESS) {
+       16:   25-block  0
+branch  0 taken 7 (fallthrough)
+branch  1 taken 9
+        7:   26:        err|=VALIDATION_ERROR;
+        7:   27:        return err;
+        7:   27-block  0
+        -:   28:    }
+        9:   29:    return SUCCESS;
+        9:   29-block  0
+        -:   30:}

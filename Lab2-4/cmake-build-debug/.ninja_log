@@ -1,0 +1,9 @@
+# ninja log v6
+54	407	7640105715213569	CMakeFiles/Lab2_4.dir/Domeniu/list_tranzactie.c.obj	4d20c76993cfc03
+81	440	7640683696461807	CMakeFiles/Lab2_4.dir/Servis/servis.c.obj	19dd417d803f9292
+92	442	7640683696564191	CMakeFiles/Lab2_4.dir/Consola/consola.c.obj	df9c6bc8eb06b2c6
+42	422	7640105715090020	CMakeFiles/Lab2_4.dir/Validator/validator_tranzacti.c.obj	3930fe9518fa7b51
+84	423	7640105715504269	CMakeFiles/Lab2_4.dir/Erori/erors.c.obj	2e86879366d92cf9
+46	435	7640683696058753	CMakeFiles/Lab2_4.dir/main.c.obj	c8a3f7b058a4f6d0
+70	453	7640105715361764	CMakeFiles/Lab2_4.dir/Repo/repo.c.obj	de928de2acfc5699
+442	8629	7640683700079663	Lab2_4.exe	ab83ab54dc1d61b1

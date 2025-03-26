@@ -1,0 +1,20 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/main.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/main.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include "Ui/console.h"
+        -:    3:#include "Tests/tests.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main(void) {
+        1:    5:    runTests();
+        1:    5-block  0
+call    0 returned 1
+        -:    6:    // Offer_list* l=createOfferList();
+        -:    7:    // run(l);
+        -:    8:    // destroyOfferList(l);
+        1:    9:    return 0;
+        -:   10:}
+        -:   11:// good luck, daca ai nevoie de ajutor imi poti scrie pe disco/wp
+        -:   12:// daca nu, lasa un review bun bro
+        -:   13:

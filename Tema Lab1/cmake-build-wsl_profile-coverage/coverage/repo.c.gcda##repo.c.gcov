@@ -1,0 +1,112 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Repository/repo.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Repository/repo.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Repository/repo.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 07.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "repo.h"
+        -:    6:
+function Add called 10 returned 100% blocks executed 100%
+       10:    7:int Add(Offer offer, Offer_list* l) {
+       10:    8:    if (l->length>=l->capacity) {
+       10:    8-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 9
+        1:    9:        resize(l);
+        1:    9-block  0
+call    0 returned 1
+        -:   10:    }
+        -:   11:    int i;
+       15:   12:    for (i=0;i<l->length;++i) {
+       10:   12-block  0
+        5:   12-block  1
+       15:   12-block  2
+branch  0 taken 7
+branch  1 taken 8 (fallthrough)
+        7:   13:        if (strcmp(l->offers[i].destination,offer.destination)==0 && strcmp(l->offers[i].type,offer.type)==0) {
+        7:   13-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 4
+        3:   13-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 1
+        -:   14:            //repoError("\nOffer already exists\n");
+        2:   15:            return 0;
+        2:   15-block  0
+        -:   16:        }
+        -:   17:    }
+        8:   18:    l->offers[l->length]=offer;
+        8:   19:    l->length++;
+        8:   20:    return 1;
+        8:   20-block  0
+        -:   21:}
+        -:   22:
+function Update called 4 returned 100% blocks executed 100%
+        4:   23:int Update(Offer old_offer,Offer new_offer,Offer_list* l) {
+        4:   24:    int i=0;
+        6:   25:    for (i=0;i<l->length;++i) {
+        4:   25-block  0
+        2:   25-block  1
+        6:   25-block  2
+branch  0 taken 4
+branch  1 taken 2 (fallthrough)
+        4:   26:        if (strcmp(l->offers[i].destination,old_offer.destination)==0 && strcmp(l->offers[i].type,old_offer.type)==0) {
+        4:   26-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 0
+        4:   26-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 2
+        2:   27:            l->offers[i]=new_offer;
+        2:   28:            return 1;
+        2:   28-block  0
+        -:   29:        }
+        -:   30:    }
+        2:   31:    return 0;
+        2:   31-block  0
+        -:   32:    //repoError("\nOffer not found\n");
+        -:   33:}
+        -:   34:
+function Remove called 5 returned 100% blocks executed 100%
+        5:   35:int Remove(Offer offer,Offer_list* l) {
+        -:   36:    int i;
+        6:   37:    for (i=0;i<l->length;++i) {
+        5:   37-block  0
+        1:   37-block  1
+        6:   37-block  2
+branch  0 taken 4
+branch  1 taken 2 (fallthrough)
+        4:   38:        if (strcmp(l->offers[i].destination,offer.destination)==0 && strcmp(l->offers[i].type,offer.type)==0) {
+        4:   38-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 0
+        4:   38-block  1
+branch  2 taken 3 (fallthrough)
+branch  3 taken 1
+        3:   39:            break;
+        3:   39-block  0
+        -:   40:        }
+        -:   41:    }
+        5:   42:    if (i==l->length) {
+        5:   42-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 3
+        -:   43:        //repoError("\nOffer not found\n");
+        2:   44:        return 0;
+        2:   44-block  0
+        -:   45:    }
+        4:   46:    for (i;i<l->length-1;++i) {
+        3:   46-block  0
+        4:   46-block  1
+branch  0 taken 1
+branch  1 taken 3 (fallthrough)
+        1:   47:        l->offers[i]=l->offers[i+1];
+        1:   47-block  0
+        -:   48:    }
+        3:   49:    l->length--;
+        3:   50:    return 1;
+        3:   50-block  0
+        -:   51:}
+        -:   52:

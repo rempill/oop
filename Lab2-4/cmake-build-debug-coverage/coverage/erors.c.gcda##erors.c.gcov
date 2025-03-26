@@ -1,0 +1,32 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Erori/erors.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Erori/erors.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Erori/erors.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/18/2025.
+        -:    3://
+        -:    4://
+        -:    5:// Created by Mihai on 07.03.2025.
+        -:    6://
+        -:    7:#include "erors.h"
+        -:    8:
+function repoError called 0 returned 0% blocks executed 0%
+    #####:    9:void repoError(char* message) {
+    #####:   10:    printf("%s\n",message);
+    %%%%%:   10-block  0
+call    0 never executed
+    #####:   11:}
+        -:   12:
+function serviceError called 0 returned 0% blocks executed 0%
+    #####:   13:void serviceError(char* message) {
+    #####:   14:    printf("%s\n",message);
+    %%%%%:   14-block  0
+call    0 never executed
+    #####:   15:}
+        -:   16:
+function validError called 0 returned 0% blocks executed 0%
+    #####:   17:void validError(char* message) {
+    #####:   18:    printf("%s\n",message);
+    %%%%%:   18-block  0
+call    0 never executed
+    #####:   19:}

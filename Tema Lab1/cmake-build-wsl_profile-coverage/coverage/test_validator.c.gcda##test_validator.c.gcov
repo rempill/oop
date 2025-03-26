@@ -1,0 +1,67 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Tests/test_validator.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/test_validator.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/test_validator.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 23.03.2025.
+        -:    3://
+        -:    4:#include "test_validator.h"
+        -:    5:
+function runValidatorTests called 1 returned 100% blocks executed 68%
+        1:    6:void runValidatorTests() {
+        -:    7:    Offer offer;
+        1:    8:    strcpy(offer.type,"city break");
+        1:    9:    strcpy(offer.destination,"Paris");
+        1:   10:    strcpy(offer.departure_date,"12.12.2025");
+        1:   11:    offer.price=100.0;
+       1*:   12:    assert(validateOffer(offer)==SUCCESS);
+        1:   12-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   12-block  1
+call    3 never executed
+        1:   13:    strcpy(offer.type,"islands");
+       1*:   14:    assert(validateOffer(offer)==INVALID_TYPE+VALIDATION_ERROR);
+        1:   14-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   14-block  1
+call    3 never executed
+        1:   15:    strcpy(offer.type,"sea side");
+        1:   16:    strcpy(offer.destination,"");
+       1*:   17:    assert(validateOffer(offer)==INVALID_DESTINATION+VALIDATION_ERROR);
+        1:   17-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   17-block  1
+call    3 never executed
+        1:   18:    strcpy(offer.destination,"Paris");
+        1:   19:    strcpy(offer.departure_date,"12.13.2025");
+       1*:   20:    assert(validateOffer(offer)==INVALID_DATE+VALIDATION_ERROR);
+        1:   20-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   20-block  1
+call    3 never executed
+        1:   21:    strcpy(offer.departure_date,"12..2025");
+       1*:   22:    assert(validateOffer(offer)==INVALID_DATE+VALIDATION_ERROR);
+        1:   22-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   22-block  1
+call    3 never executed
+        1:   23:    strcpy(offer.departure_date,"12.12.2025");
+        1:   24:    offer.price=-100.0;
+       1*:   25:    assert(validateOffer(offer)==INVALID_PRICE+VALIDATION_ERROR);
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   25-block  1
+call    3 never executed
+        1:   26:}

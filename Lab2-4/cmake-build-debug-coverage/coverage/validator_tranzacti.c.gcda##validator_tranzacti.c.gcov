@@ -1,0 +1,55 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Validator/validator_tranzacti.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Validator/validator_tranzacti.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Validator/validator_tranzacti.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/18/2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "validator_tranzacti.h"
+        -:    6:/// functie care valideaza o tranzactie
+        -:    7:/// aceasta functie verifica daca ziua este intre 1 si 31
+        -:    8:/// daca suma este pozitiva
+        -:    9:/// daca tipul este "Intrare" sau "Iesire"
+        -:   10:/// daca descrierea nu este vida
+        -:   11:/// @param tranzactie  tranzactia pe care dorim sa o validam
+        -:   12:/// @return
+function validare_Tranazctie called 10 returned 100% blocks executed 100%
+       10:   13:int validare_Tranazctie(Tranzactie tranzactie) {
+       10:   14:    if (tranzactie.ziua < 1 || tranzactie.ziua > 31) {
+       10:   14-block  0
+branch  0 taken 9 (fallthrough)
+branch  1 taken 1
+        9:   14-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 9
+        1:   15:        return 1;
+        1:   15-block  0
+        -:   16:    }
+        9:   17:    if (tranzactie.suma < 0) {
+        9:   17-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 8
+        1:   18:        return 2;
+        1:   18-block  0
+        -:   19:    }
+        8:   20:    if (strcmp(tranzactie.tip, "Intrare") != 0 && strcmp(tranzactie.tip, "Iesire") != 0) {
+        8:   20-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 5
+        3:   20-block  1
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0
+        3:   21:        return 3;
+        3:   21-block  0
+        -:   22:    }
+        5:   23:    if (strlen(tranzactie.descriere) == 0) {
+        5:   23-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 4
+        1:   24:        return 4;
+        1:   24-block  0
+        -:   25:    }
+        4:   26:    return 0;
+        4:   26-block  0
+        -:   27:}

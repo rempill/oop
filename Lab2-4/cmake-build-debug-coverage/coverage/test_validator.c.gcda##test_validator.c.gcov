@@ -1,0 +1,52 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste/test_validator.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/test_validator.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/test_validator.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 26.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "test_validator.h"
+        -:    6:
+function testValidator called 1 returned 100% blocks executed 73%
+        1:    7:void testValidator() {
+        1:    8:    Tranzactie* test=createTranzactie(0,11,"Intrare","haha");
+        1:    8-block  0
+call    0 returned 1
+       1*:    9:    assert(validare_Tranazctie(*test)==1);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:    9-block  0
+call    3 never executed
+        1:   10:    test->ziua=1;
+        1:   11:    test->suma=-1;
+       1*:   12:    assert(validare_Tranazctie(*test)==2);
+        1:   12-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   12-block  1
+call    3 never executed
+        1:   13:    test->suma=2;
+        1:   14:    strcpy(test->tip,"Intre");
+       1*:   15:    assert(validare_Tranazctie(*test)==3);
+        1:   15-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   15-block  1
+call    3 never executed
+        1:   16:    strcpy(test->tip,"Intrare");
+        1:   17:    strcpy(test->descriere,"");
+       1*:   18:    assert(validare_Tranazctie(*test)==4);
+        1:   18-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   18-block  1
+call    3 never executed
+        1:   19:    destroyTranzactie(test);
+        1:   19-block  0
+call    0 returned 1
+        1:   20:}

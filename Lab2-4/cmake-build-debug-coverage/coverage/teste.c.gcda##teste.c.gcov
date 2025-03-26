@@ -1,0 +1,17 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste/teste.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/teste.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/teste.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "teste.h"
+function runAllTests called 1 returned 100% blocks executed 100%
+        1:    2:void runAllTests() {
+        1:    3:    ruleazaTesteCreateList();
+        1:    3-block  0
+call    0 returned 1
+        1:    4:    runRepoTests();
+call    0 returned 1
+        1:    5:    runServiceTests();
+call    0 returned 1
+        1:    6:    testValidator();
+call    0 returned 1
+        1:    7:}

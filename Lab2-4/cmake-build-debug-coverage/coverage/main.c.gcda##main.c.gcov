@@ -1,0 +1,19 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/main.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/main.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include "Consola/consola.h"
+        -:    3:#include "Domeniu/list_tranzactie.h"
+        -:    4:#include <stdlib.h>
+        -:    5:#include "./Teste/teste.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main(void){
+        -:    7:    // Service* service=createService();
+        -:    8:    // runn(service);
+        -:    9:    // destroyService(service);
+        1:   10:    runAllTests();
+        1:   10-block  0
+call    0 returned 1
+        1:   11:    return 0;
+        -:   12:}

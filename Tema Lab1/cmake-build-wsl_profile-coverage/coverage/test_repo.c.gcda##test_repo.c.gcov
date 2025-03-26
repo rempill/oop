@@ -1,0 +1,97 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Tests/test_repo.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/test_repo.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/test_repo.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 11.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "test_repo.h"
+        -:    6:
+function runRepoTests called 1 returned 100% blocks executed 70%
+        1:    7:void runRepoTests() {
+        1:    8:    Offer_list *l = createOfferList();
+        1:    8-block  0
+call    0 returned 1
+        -:    9:    Offer offer;
+        1:   10:    strcpy(offer.type,"city break");
+        1:   11:    strcpy(offer.destination,"Paris");
+        1:   12:    strcpy(offer.departure_date,"12.12.2025");
+        1:   13:    offer.price=100;
+        1:   14:    Add(offer,l);
+call    0 returned 1
+       1*:   15:    assert(l->length==1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   15-block  0
+call    2 never executed
+       1*:   16:    assert(strcmp(l->offers[0].type,"city break")==0);
+        1:   16-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   16-block  1
+call    2 never executed
+        1:   17:    Add(offer,l);//offer already exists
+        1:   17-block  0
+call    0 returned 1
+       1*:   18:    assert(l->length==1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   18-block  0
+call    2 never executed
+        -:   19:    Offer new_offer;
+        1:   20:    strcpy(new_offer.type,"city break");
+        1:   21:    strcpy(new_offer.destination,"Paris");
+        1:   22:    strcpy(new_offer.departure_date,"12.12.2025");
+        1:   23:    new_offer.price=200;
+        1:   24:    Update(offer,new_offer,l);
+        1:   24-block  0
+call    0 returned 1
+       1*:   25:    assert(l->offers[0].price==200);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   25-block  0
+call    2 never executed
+        1:   26:    strcpy(new_offer.type,"sea side");
+        1:   27:    Update(new_offer,offer,l);
+        1:   27-block  0
+call    0 returned 1
+       1*:   28:    assert(l->offers[0].price==200); //offer not found
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   28-block  0
+call    2 never executed
+        1:   29:    strcpy(offer.type,"sea side");
+        1:   30:    Remove(offer,l);
+        1:   30-block  0
+call    0 returned 1
+       1*:   31:    assert(l->length==1);//offer not found
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   31-block  0
+call    2 never executed
+        1:   32:    strcpy(new_offer.type,"city break");
+        1:   33:    Remove(new_offer,l);
+        1:   33-block  0
+call    0 returned 1
+       1*:   34:    assert(l->length==0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   34-block  0
+call    2 never executed
+        1:   35:    l->capacity=1;
+        1:   36:    Add(offer,l);
+        1:   36-block  0
+call    0 returned 1
+        1:   37:    strcpy(offer.type,"city break");
+        1:   38:    Add(offer,l);
+call    0 returned 1
+       1*:   39:    assert(l->capacity==2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   39-block  0
+call    2 never executed
+        1:   40:    destroyOfferList(l);
+        1:   40-block  0
+call    0 returned 1
+        1:   41:}

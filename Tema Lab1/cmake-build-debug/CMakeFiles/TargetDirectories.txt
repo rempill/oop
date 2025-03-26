@@ -1,0 +1,3 @@
+/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-debug/CMakeFiles/Tema_Lab1.dir
+/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

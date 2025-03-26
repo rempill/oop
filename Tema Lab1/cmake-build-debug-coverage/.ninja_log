@@ -1,0 +1,13 @@
+# ninja log v6
+21	113	7634659518518871	CMakeFiles/Tema_Lab1.dir/Controller/service.c.obj	b6c33730cf99350
+15	85	7634659518455741	CMakeFiles/Tema_Lab1.dir/Errors/errors.c.obj	3599b0fd27c316a6
+18	94	7634659518487310	CMakeFiles/Tema_Lab1.dir/Validator/validate_offer.c.obj	b4dd507cd1b1b267
+27	94	7634659518576716	CMakeFiles/Tema_Lab1.dir/Tests/test_domain.c.obj	eb0d048dbc3cd34f
+12	83	7634659518429437	CMakeFiles/Tema_Lab1.dir/Domain/offer_list.c.obj	1ff61e7648e30420
+5	85	7634659518350531	CMakeFiles/Tema_Lab1.dir/main.c.obj	263e38d0b606603d
+9	94	7634659518392600	CMakeFiles/Tema_Lab1.dir/Repository/repo.c.obj	27c903598a579fc
+30	108	7634659518608280	CMakeFiles/Tema_Lab1.dir/Tests/tests.c.obj	52bfd36a9018c93
+33	112	7634659518639841	CMakeFiles/Tema_Lab1.dir/Tests/test_repo.c.obj	5a4bb8e30797d8d2
+4	64	7634660381106163	CMakeFiles/Tema_Lab1.dir/Tests/test_service.c.obj	3e18ee78a15aa2a4
+24	122	7634659518545160	CMakeFiles/Tema_Lab1.dir/Ui/console.c.obj	f3447ee6b8aa4e4
+64	137	7634660381705378	Tema_Lab1.exe	69e701ef21b010d0

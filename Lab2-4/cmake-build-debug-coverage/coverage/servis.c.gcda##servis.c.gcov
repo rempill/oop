@@ -1,0 +1,194 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Servis/servis.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Servis/servis.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Servis/servis.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/18/2025.
+        -:    3://
+        -:    4:#include "servis.h"
+        -:    5:
+function createService called 1 returned 100% blocks executed 100%
+        1:    6:Service* createService() {
+        1:    7:    Service* service = (Service*)malloc(sizeof(Service));
+        1:    8:    service->repo = createRepo();
+        1:    8-block  0
+call    0 returned 1
+        1:    9:    service->undoStack = createList(destroyList,copyList);
+call    0 returned 1
+        1:   10:    return service;
+        -:   11:}
+        -:   12:
+        -:   13:/// Functie care adauga o tranzactie
+        -:   14:/// @param lista lista de tranzactii
+        -:   15:/// @param tranzactie tranzactia pe care dorim sa o adaugam
+function service_adaugaTranzactie called 5 returned 100% blocks executed 100%
+        5:   16:int service_adaugaTranzactie(Service *service, Tranzactie* tranzactie) {
+        5:   17:    if (validare_Tranazctie(*tranzactie) == 0) {
+        5:   17-block  0
+call    0 returned 5
+branch  1 taken 4 (fallthrough)
+branch  2 taken 1
+        4:   18:        List* copy=copyList(service->repo->elements);
+        4:   18-block  0
+call    0 returned 4
+        4:   19:        add(service->undoStack,copy);
+call    0 returned 4
+        4:   20:        adaugaTranzactie(service->repo, tranzactie);
+call    0 returned 4
+        4:   21:        return 0;
+        -:   22:    } else {
+        1:   23:        return validare_Tranazctie(*tranzactie);
+        1:   23-block  0
+call    0 returned 1
+        -:   24:    }
+        -:   25:}
+        -:   26:///
+function service_stergeTranzactie called 1 returned 100% blocks executed 100%
+        1:   27:int service_stergeTranzactie(Service *lista, int index) {
+        1:   28:    int rez=  stergeTranzactie(lista->repo, index);
+        1:   28-block  0
+call    0 returned 1
+        1:   29:    if (rez==0) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   30:        List* copy=copyList(lista->repo->elements);
+        1:   30-block  0
+call    0 returned 1
+        1:   31:        add(lista->undoStack,copy);
+call    0 returned 1
+        -:   32:    }
+        1:   33:    return rez;
+        1:   33-block  0
+        -:   34:}
+        -:   35:
+        -:   36:/// 
+        -:   37:/// @param lista 
+        -:   38:/// @param index 
+        -:   39:/// @param tranzactie 
+        -:   40:/// @return 
+function service_modificaTranzactie called 1 returned 100% blocks executed 100%
+        1:   41:int service_modificaTranzactie(Service *lista, int index, Tranzactie* tranzactie) {
+        1:   42:    int rez= modificaTranzactie(lista->repo, index, tranzactie);
+        1:   42-block  0
+call    0 returned 1
+        1:   43:    if (rez==0) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   44:        List* copy=copyList(lista->repo->elements);
+        1:   44-block  0
+call    0 returned 1
+        1:   45:        add(lista->undoStack,copy);
+call    0 returned 1
+        -:   46:    }
+        1:   47:    return rez;
+        1:   47-block  0
+        -:   48:}
+        -:   49:
+        -:   50:/// listaFiltrata este o lista noua in care se vor adauga tranzactiile filtrate
+        -:   51:/// @param lista 
+        -:   52:/// @param tip 
+        -:   53:/// @param listaFiltrata 
+function filtrate called 2 returned 100% blocks executed 100%
+        2:   54:void filtrate(Service *service, char *tip, List *listaFiltrata) {
+        2:   55:    List *lista = service->repo->elements;
+        5:   56:    for (int i = 0; i < lista->lungime; i++) {
+        2:   56-block  0
+        3:   56-block  1
+        5:   56-block  2
+branch  0 taken 3
+branch  1 taken 2 (fallthrough)
+        3:   57:        Tranzactie* tranzactie=get(lista,i);
+        3:   57-block  0
+call    0 returned 3
+        3:   58:        if (strcmp(tranzactie->tip, tip)==0) {
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:   59:            add(listaFiltrata, copyTranzactie(tranzactie));
+        3:   59-block  0
+call    0 returned 3
+call    1 returned 3
+        -:   60:        }
+        -:   61:    }
+        2:   62:}
+        -:   63:
+function filtrate_new called 1 returned 100% blocks executed 100%
+        1:   64:void filtrate_new(Service* service, int zi, List* listaFiltrata) {
+        1:   65:    List* lista=service->repo->elements;
+        4:   66:    for (int i = 0; i < lista->lungime; i++) {
+        1:   66-block  0
+        3:   66-block  1
+        4:   66-block  2
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:   67:        Tranzactie* tranzactie=get(lista,i);
+        3:   67-block  0
+call    0 returned 3
+        3:   68:        if (tranzactie->ziua==zi) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   69:            add(listaFiltrata, copyTranzactie(tranzactie));
+        1:   69-block  0
+call    0 returned 1
+call    1 returned 1
+        -:   70:        }
+        -:   71:    }
+        1:   72:}
+        -:   73:
+function sortare called 1 returned 100% blocks executed 100%
+        1:   74:void sortare(Service *service) {
+        1:   75:    List *lista = service->repo->elements;
+        3:   76:    for (int i = 0; i < lista->lungime - 1; i++) {
+        1:   76-block  0
+        2:   76-block  1
+        3:   76-block  2
+branch  0 taken 2
+branch  1 taken 1 (fallthrough)
+        5:   77:        for (int j = i + 1; j < lista->lungime; j++) {
+        2:   77-block  0
+        3:   77-block  1
+        5:   77-block  2
+branch  0 taken 3
+branch  1 taken 2 (fallthrough)
+        3:   78:            Tranzactie* t1=get(lista,i);
+        3:   78-block  0
+call    0 returned 3
+        3:   79:            Tranzactie* t2=get(lista,j);
+call    0 returned 3
+        3:   80:            if (t1->ziua > t2->ziua) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   81:                Tranzactie* aux=lista->elements[i];
+        1:   82:                lista->elements[i]=lista->elements[j];
+        1:   83:                lista->elements[j]=aux;
+        1:   83-block  0
+        -:   84:            }
+        -:   85:        }
+        -:   86:    }
+        1:   87:}
+        -:   88:
+function undo called 4 returned 100% blocks executed 100%
+        4:   89:void undo(Service* service) {
+        4:   90:    if (service->undoStack->lungime == 0) {
+        4:   90-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3
+        1:   91:        return;
+        1:   91-block  0
+        -:   92:    }
+        3:   93:    List *lastList=service->undoStack->elements[service->undoStack->lungime-1];
+        3:   94:    service->undoStack->lungime--;
+        3:   95:    destroyList(service->repo->elements);
+        3:   95-block  0
+call    0 returned 3
+        3:   96:    service->repo->elements=lastList;
+        -:   97:}
+        -:   98:
+function destroyService called 1 returned 100% blocks executed 100%
+        1:   99:void destroyService(Service* service) {
+        1:  100:    destroyRepo(service->repo);
+        1:  100-block  0
+call    0 returned 1
+        1:  101:    destroyList(service->undoStack);
+call    0 returned 1
+        1:  102:    free(service);
+        1:  103:}

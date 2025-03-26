@@ -1,0 +1,24 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Tests/tests.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/tests.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/tests.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 11.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "tests.h"
+        -:    6:
+        -:    7:#include "test_validator.h"
+        -:    8:
+function runTests called 1 returned 100% blocks executed 100%
+        1:    9:void runTests() {
+        1:   10:    runDomainTests();
+        1:   10-block  0
+call    0 returned 1
+        1:   11:    runValidatorTests();
+call    0 returned 1
+        1:   12:    runRepoTests();
+call    0 returned 1
+        1:   13:    runServiceTests();
+call    0 returned 1
+        1:   14:}

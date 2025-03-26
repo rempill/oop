@@ -1,0 +1,235 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Controller/service.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Controller/service.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Controller/service.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 07.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "service.h"
+        -:    6:#define COMPARE(a,b) ((a>b)-(a<b))
+function comparePrice called 2 returned 100% blocks executed 100%
+        2:    7:int comparePrice(const void *a, const void *b) {
+        2:    8:    Offer* tempa=(Offer*)a;
+        2:    9:    Offer* tempb=(Offer*)b;
+        2:   10:    return COMPARE(tempa->price,tempb->price);
+        2:   10-block  0
+        -:   11:}
+        -:   12:
+function comparePriceDesc called 3 returned 100% blocks executed 100%
+        3:   13:int comparePriceDesc(const void *a, const void *b) {
+        3:   14:    Offer* tempa=(Offer*)a;
+        3:   15:    Offer* tempb=(Offer*)b;
+        3:   16:    return COMPARE(tempb->price,tempa->price);
+        3:   16-block  0
+        -:   17:}
+        -:   18:
+function compareDestination called 3 returned 100% blocks executed 100%
+        3:   19:int compareDestination(const void *a, const void *b) {
+        3:   20:    Offer* tempa=(Offer*)a;
+        3:   21:    Offer* tempb=(Offer*)b;
+        3:   22:    return strcmp(tempa->destination, tempb->destination);
+        3:   22-block  0
+        -:   23:}
+        -:   24:
+function compareDestinationDesc called 3 returned 100% blocks executed 100%
+        3:   25:int compareDestinationDesc(const void *a, const void *b) {
+        3:   26:    Offer* tempa=(Offer*)a;
+        3:   27:    Offer* tempb=(Offer*)b;
+        3:   28:    return strcmp(tempb->destination, tempa->destination);
+        3:   28-block  0
+        -:   29:}
+        -:   30:
+function addOffer called 7 returned 100% blocks executed 100%
+        7:   31:int addOffer(char type[],char destination[],char departure_date[],float price,Offer_list* l) {
+        -:   32:    Offer offer;
+        7:   33:    strcpy(offer.type,type);
+        7:   34:    strcpy(offer.destination,destination);
+        7:   35:    strcpy(offer.departure_date,departure_date);
+        7:   36:    offer.price=price;
+        7:   37:    Error err=validateOffer(offer);
+        7:   37-block  0
+call    0 returned 7
+        7:   38:    if (err!=SUCCESS) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 6
+        1:   39:        return err;
+        1:   39-block  0
+        -:   40:    }
+        6:   41:    int check=Add(offer,l);
+        6:   41-block  0
+call    0 returned 6
+        6:   42:    if (check) {
+branch  0 taken 5 (fallthrough)
+branch  1 taken 1
+        5:   43:        return SUCCESS;
+        5:   43-block  0
+        -:   44:    }
+        1:   45:    return REPO_ERROR;
+        1:   45-block  0
+        -:   46:}
+        -:   47:
+function updateOffer called 3 returned 100% blocks executed 100%
+        3:   48:int updateOffer(char old_type[],char old_destination[],char new_type[],char new_destination[],char new_departure_date[],float new_price,Offer_list* l) {
+        -:   49:    Offer old_offer;
+        3:   50:    strcpy(old_offer.type,old_type);
+        3:   51:    strcpy(old_offer.destination,old_destination);
+        -:   52:    Offer new_offer;
+        3:   53:    strcpy(new_offer.type,new_type);
+        3:   54:    strcpy(new_offer.destination,new_destination);
+        3:   55:    strcpy(new_offer.departure_date,new_departure_date);
+        3:   56:    new_offer.price=new_price;
+        3:   57:    Error err=validateOffer(new_offer);
+        3:   57-block  0
+call    0 returned 3
+        3:   58:    if (err!=SUCCESS) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   59:        return err;
+        1:   59-block  0
+        -:   60:    }
+        2:   61:    int check=Update(old_offer,new_offer,l);
+        2:   61-block  0
+call    0 returned 2
+        2:   62:    if (check) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   63:        return SUCCESS;
+        1:   63-block  0
+        -:   64:    }
+        1:   65:    return REPO_ERROR;
+        1:   65-block  0
+        -:   66:}
+        -:   67:
+function removeOffer called 3 returned 100% blocks executed 100%
+        3:   68:int removeOffer(char type[],char destination[],Offer_list* l) {
+        -:   69:    Offer offer;
+        3:   70:    strcpy(offer.type,type);
+        3:   71:    strcpy(offer.destination,destination);
+        3:   72:    int check=Remove(offer,l);
+        3:   72-block  0
+call    0 returned 3
+        3:   73:    if (check) {
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:   74:        return SUCCESS;
+        2:   74-block  0
+        -:   75:    }
+        1:   76:    return REPO_ERROR;
+        1:   76-block  0
+        -:   77:}
+        -:   78:
+function sortOffersByPrice called 2 returned 100% blocks executed 100%
+        2:   79:void sortOffersByPrice(Offer_list* l,int asc_desc,Offer_list* sorted) {
+        8:   80:    for (int i=0;i<l->length;i++) {
+        2:   80-block  0
+        8:   80-block  1
+branch  0 taken 6
+branch  1 taken 2 (fallthrough)
+        6:   81:        sorted->offers[i]=l->offers[i];
+        6:   81-block  0
+        -:   82:    }
+        2:   83:    sorted->length=l->length;
+        2:   84:    if (asc_desc) {
+        2:   84-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   85:       qsort(sorted->offers,sorted->length, sizeof(Offer), comparePriceDesc);
+        1:   85-block  0
+call    0 returned 1
+        -:   86:    }
+        -:   87:    else {
+        1:   88:        qsort(sorted->offers,sorted->length, sizeof(Offer), comparePrice);
+        1:   88-block  0
+call    0 returned 1
+        -:   89:    }
+        2:   90:}
+        -:   91:
+function sortOffersByDestination called 2 returned 100% blocks executed 100%
+        2:   92:void sortOffersByDestination(Offer_list* l,int asc_desc,Offer_list* sorted) {
+        8:   93:    for (int i=0;i<l->length;i++) {
+        2:   93-block  0
+        8:   93-block  1
+branch  0 taken 6
+branch  1 taken 2 (fallthrough)
+        6:   94:        sorted->offers[i]=l->offers[i];
+        6:   94-block  0
+        -:   95:    }
+        2:   96:    sorted->length=l->length;
+        2:   97:    if (asc_desc) {
+        2:   97-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   98:        qsort(sorted->offers,sorted->length, sizeof(Offer), compareDestinationDesc);
+        1:   98-block  0
+call    0 returned 1
+        -:   99:    }
+        -:  100:    else {
+        1:  101:        qsort(sorted->offers,sorted->length, sizeof(Offer), compareDestination);
+        1:  101-block  0
+call    0 returned 1
+        -:  102:    }
+        2:  103:}
+        -:  104:
+function filterByDestination called 1 returned 100% blocks executed 100%
+        1:  105:void filterByDestination(Offer_list* l,char destination[],Offer_list* filtered) {
+        1:  106:    int j=0;
+        4:  107:    for (int i=0;i<l->length;++i) {
+        1:  107-block  0
+        3:  107-block  1
+        4:  107-block  2
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:  108:        if (!strcmp(destination,l->offers[i].destination)) {
+        3:  108-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:  109:            filtered->offers[j]=l->offers[i];
+        1:  110:            j++;
+        1:  110-block  0
+        -:  111:        }
+        -:  112:    }
+        1:  113:    filtered->length=j;
+        1:  114:}
+        -:  115:
+function filterByType called 1 returned 100% blocks executed 100%
+        1:  116:void filterByType(Offer_list* l,char type[],Offer_list* filtered) {
+        1:  117:    int j=0;
+        4:  118:    for (int i=0;i<l->length;++i) {
+        1:  118-block  0
+        3:  118-block  1
+        4:  118-block  2
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:  119:        if (!strcmp(type,l->offers[i].type)) {
+        3:  119-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:  120:            filtered->offers[j]=l->offers[i];
+        2:  121:            j++;
+        2:  121-block  0
+        -:  122:        }
+        -:  123:    }
+        1:  124:    filtered->length=j;
+        1:  125:}
+        -:  126:
+function filterByPrice called 1 returned 100% blocks executed 100%
+        1:  127:void filterByPrice(Offer_list* l,float price,Offer_list* filtered) {
+        1:  128:    int j=0;
+        4:  129:    for (int i=0;i<l->length;++i) {
+        1:  129-block  0
+        3:  129-block  1
+        4:  129-block  2
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:  130:        if (l->offers[i].price==price) {
+        3:  130-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:  131:            filtered->offers[j]=l->offers[i];
+        1:  132:            j++;
+        1:  132-block  0
+        -:  133:        }
+        -:  134:    }
+        1:  135:    filtered->length=j;
+        1:  136:}

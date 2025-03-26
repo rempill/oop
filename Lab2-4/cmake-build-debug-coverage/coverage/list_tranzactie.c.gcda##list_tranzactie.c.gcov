@@ -1,0 +1,115 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Domeniu/list_tranzactie.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Domeniu/list_tranzactie.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Domeniu/list_tranzactie.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/18/2025.
+        -:    3://
+        -:    4:#include "list_tranzactie.h"
+        -:    5:/// Functie care creeaza o lista de undo
+function createList called 8 returned 100% blocks executed 100%
+        8:    6:List* createList(DestroyFunc destroy, CopyFunc copy) {
+        8:    7:    List* l=(List*)malloc(sizeof(List));
+        8:    8:    l->lungime=0;
+        8:    9:    l->capacity=2;
+        8:   10:    l->elements=(TElem*) malloc(l->capacity*sizeof(TElem));
+        8:   11:    l->destroyElement=destroy;
+        8:   12:    l->copyElement=copy;
+        8:   13:    return l;
+        8:   13-block  0
+        -:   14:}
+        -:   15:
+function destroyList called 14 returned 100% blocks executed 100%
+       14:   16:void destroyList(List* l) {
+       35:   17:    for (int i=0;i<l->lungime;i++) {
+       14:   17-block  0
+       35:   17-block  1
+branch  0 taken 21
+branch  1 taken 14 (fallthrough)
+       21:   18:        l->destroyElement(l->elements[i]);
+       21:   18-block  0
+call    0 returned 21
+        -:   19:    }
+       14:   20:    free(l->elements);
+       14:   21:    free(l);
+       14:   22:}
+        -:   23:
+        -:   24:/// Functie care redimensioneaza lista de tranzactii
+function resize called 7 returned 100% blocks executed 100%
+        7:   25:void resize(List* l) {
+        7:   26:    int newCap=l->capacity*2;
+        7:   27:    TElem* newTranzactii=(TElem *)malloc(newCap*sizeof(TElem));
+        -:   28:    int i;
+       23:   29:    for (i=0;i<l->lungime;i++) {
+        7:   29-block  0
+       23:   29-block  1
+branch  0 taken 16
+branch  1 taken 7 (fallthrough)
+       16:   30:        newTranzactii[i]=l->elements[i];
+       16:   30-block  0
+        -:   31:    }
+        7:   32:    free(l->elements);
+        7:   33:    l->elements=newTranzactii;
+        7:   34:    l->capacity=newCap;
+        7:   35:}
+        -:   36:
+function add called 22 returned 100% blocks executed 100%
+       22:   37:void add(List* l, TElem el) {
+       22:   38:    if (l->lungime==l->capacity) {
+       22:   38-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 16
+        6:   39:        resize(l);
+        6:   39-block  0
+call    0 returned 6
+        -:   40:    }
+       22:   41:    l->elements[l->lungime++]=el;
+       22:   42:}
+        -:   43:
+function rem called 2 returned 100% blocks executed 100%
+        2:   44:void rem(List* lista,int index) {
+        2:   45:    destroyTranzactie(lista->elements[index]);
+        2:   45-block  0
+call    0 returned 2
+        3:   46:    for (int i = index; i < lista->lungime - 1; i++) {
+        3:   46-block  0
+branch  0 taken 1
+branch  1 taken 2 (fallthrough)
+        1:   47:        lista->elements[i] = lista->elements[i + 1];
+        1:   47-block  0
+        -:   48:    }
+        2:   49:    lista->lungime--;
+        2:   50:}
+        -:   51:
+function modify called 2 returned 100% blocks executed 100%
+        2:   52:void modify(List* l, int index, TElem el) {
+        2:   53:    l->elements[index]=el;
+        2:   54:}
+        -:   55:
+function get called 23 returned 100% blocks executed 100%
+       23:   56:TElem get(List* lista, int index) {
+       23:   57:    return lista->elements[index];
+       23:   57-block  0
+        -:   58:}
+        -:   59:
+function copyList called 6 returned 100% blocks executed 100%
+        6:   60:List* copyList(List* l) {
+        6:   61:    List* copy=(List*) malloc(sizeof(List));
+        6:   62:    copy->elements=(TElem*)malloc(l->capacity*sizeof(TElem));
+       10:   63:    for (int i=0;i<l->lungime;i++) {
+        6:   63-block  0
+       10:   63-block  1
+branch  0 taken 4
+branch  1 taken 6 (fallthrough)
+        4:   64:        copy->elements[i]=l->copyElement(l->elements[i]);
+        4:   64-block  0
+call    0 returned 4
+        -:   65:    }
+        6:   66:    copy->lungime=l->lungime;
+        6:   67:    copy->capacity=l->capacity;
+        6:   68:    copy->destroyElement=l->destroyElement;
+        6:   69:    copy->copyElement=l->copyElement;
+        6:   70:    return copy;
+        6:   70-block  0
+        -:   71:}
+        -:   72:

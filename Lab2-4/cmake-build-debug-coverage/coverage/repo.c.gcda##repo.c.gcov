@@ -1,0 +1,83 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Repo/repo.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Repo/repo.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Repo/repo.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/18/2025.
+        -:    3://
+        -:    4:#include "repo.h"
+        -:    5:
+        -:    6:#include "../Servis/servis.h"
+        -:    7:
+function createRepo called 3 returned 100% blocks executed 100%
+        3:    8:Repository* createRepo() {
+        3:    9:    Repository* repo = (Repository*) malloc(sizeof(Repository));
+        3:   10:    repo->elements = createList(destroyTranzactie,copyTranzactie);
+        3:   10-block  0
+call    0 returned 3
+        3:   11:    return repo;
+        -:   12:}
+        -:   13:
+        -:   14:/// Functie care adauga o tranzactie
+        -:   15:/// @param lista lista de tranzactii
+        -:   16:/// @param tranzactie tranzactia pe care dorim sa o adaugam
+        -:   17:/// @return
+function adaugaTranzactie called 12 returned 100% blocks executed 100%
+       12:   18:void adaugaTranzactie(Repository* repo, Tranzactie* tranzactie) {
+       12:   19:    add(repo->elements, tranzactie);
+       12:   19-block  0
+call    0 returned 12
+       12:   20:}
+        -:   21:/// Functie care sterge o tranzactie
+        -:   22:/// @param lista lista de tranzactii
+        -:   23:/// @param index indexul tranzactiei pe care dorim sa o stergem
+function stergeTranzactie called 3 returned 100% blocks executed 100%
+        3:   24:int stergeTranzactie(Repository *lista, int index) {
+        3:   25:    if (index < 0 || index >= lista->elements->lungime) {
+        3:   25-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:   25-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 2
+        1:   26:        return 1 ;
+        1:   26-block  0
+        -:   27:    }
+        2:   28:    rem(lista->elements,index);
+        2:   28-block  0
+call    0 returned 2
+        2:   29:    return 0;
+        -:   30:}
+        -:   31:/// Functie care modifica o tranzactie
+        -:   32:/// @param lista lista de tranzactii
+        -:   33:/// @param index indexul tranzactiei pe care dorim sa o modificam
+        -:   34:/// @param tranzactie  tranzactia cu care dorim sa o modificam
+function modificaTranzactie called 3 returned 100% blocks executed 100%
+        3:   35:int modificaTranzactie(Repository *lista, int index, Tranzactie* tranzactie) {
+        3:   36:    if (index < 0 || index >= lista->elements->lungime) {
+        3:   36-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:   36-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 2
+        1:   37:        return 1;
+        1:   37-block  0
+        -:   38:    }
+        2:   39:    Tranzactie* tranz=get(lista->elements, index);
+        2:   39-block  0
+call    0 returned 2
+        2:   40:    destroyTranzactie(tranz);
+call    0 returned 2
+        2:   41:    modify(lista->elements, index, tranzactie);
+call    0 returned 2
+        2:   42:    return 0;
+        -:   43:}
+        -:   44:
+function destroyRepo called 3 returned 100% blocks executed 100%
+        3:   45:void destroyRepo(Repository* repo) {
+        3:   46:    destroyList(repo->elements);
+        3:   46-block  0
+call    0 returned 3
+        3:   47:    free(repo);
+        3:   48:}

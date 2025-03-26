@@ -1,0 +1,164 @@
+        -:    0:Source:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/Teste/teste_repo.c
+        -:    0:Graph:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/teste_repo.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/Downloads/Lab2-4 (2)/Lab2-4/Lab2-4/cmake-build-debug-coverage/CMakeFiles/Lab2_4.dir/Teste/teste_repo.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by kissk on 3/19/2025.
+        -:    3://
+        -:    4:#include "teste_repo.h"
+        -:    5:
+function testrsize called 1 returned 100% blocks executed 86%
+        1:    6:void testrsize() {
+        1:    7:    Repository *repo = createRepo();
+        1:    7-block  0
+call    0 returned 1
+        1:    8:    List* l=repo->elements;
+       1*:    9:    assert(l->capacity == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:    9-block  0
+call    2 never executed
+        1:   10:    adaugaTranzactie(repo, createTranzactie(1, 100, "Intrare", "Paris"));
+        1:   10-block  0
+call    0 returned 1
+call    1 returned 1
+        1:   11:    adaugaTranzactie(repo, createTranzactie(2, 100.0, "Intrare", "Paris"));
+call    0 returned 1
+call    1 returned 1
+        1:   12:    adaugaTranzactie(repo, createTranzactie(3, 100.0, "Intrare", "Paris"));
+call    0 returned 1
+call    1 returned 1
+        1:   13:    adaugaTranzactie(repo, createTranzactie(4, 100.0, "Intrare", "Paris"));
+call    0 returned 1
+call    1 returned 1
+        1:   14:    adaugaTranzactie(repo, createTranzactie(5, 100.0, "Intrare", "Paris"));
+call    0 returned 1
+call    1 returned 1
+       1*:   15:    assert(l->lungime == 5);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   15-block  0
+call    2 never executed
+        1:   16:    adaugaTranzactie(repo, createTranzactie(6, 100.0, "Intrare", "Paris"));
+        1:   16-block  0
+call    0 returned 1
+call    1 returned 1
+       1*:   17:    assert(l->capacity == 8);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   17-block  0
+call    2 never executed
+        1:   18:    destroyRepo(repo);
+        1:   18-block  0
+call    0 returned 1
+        1:   19:}
+function runRepoTests called 1 returned 100% blocks executed 69%
+        1:   20:void runRepoTests() {
+        1:   21:    Repository *repo= createRepo();
+        1:   21-block  0
+call    0 returned 1
+        1:   22:    List* l=repo->elements;
+        1:   23:    Tranzactie* tranzactie=createTranzactie(12,100.0,"Intrare","Paris");
+call    0 returned 1
+        1:   24:    adaugaTranzactie(repo, tranzactie);
+call    0 returned 1
+       1*:   25:    assert(l->lungime == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   25-block  0
+call    2 never executed
+        1:   26:    Tranzactie* traz=get(l,0);
+        1:   26-block  0
+call    0 returned 1
+       1*:   27:    assert(strcmp(traz->tip, "Intrare") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   27-block  0
+call    2 never executed
+        1:   28:    Tranzactie* new_tranzactie=createTranzactie(12,200.0,"Iesire","Paris");
+        1:   28-block  0
+call    0 returned 1
+        1:   29:    modificaTranzactie(repo,0, new_tranzactie);
+call    0 returned 1
+        1:   30:    tranzactie=createTranzactie(12,100.0,"Intrare","Paris");
+call    0 returned 1
+        1:   31:    adaugaTranzactie(repo, tranzactie);
+call    0 returned 1
+        1:   32:    Tranzactie* tranz=get(l,0);
+call    0 returned 1
+       1*:   33:    assert(tranz->suma == 200.0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   33-block  0
+call    2 never executed
+       1*:   34:    assert(strcmp(tranz->tip, "Iesire") == 0);
+        1:   34-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   34-block  1
+call    2 never executed
+       1*:   35:    assert(modificaTranzactie(repo,12, tranzactie) == 1);
+        1:   35-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   35-block  1
+call    3 never executed
+       1*:   36:    assert(strcmp(tranz->tip, "Iesire") == 0);
+        1:   36-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   36-block  1
+call    2 never executed
+       1*:   37:    assert(stergeTranzactie(repo,12)==1);
+        1:   37-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   37-block  1
+call    3 never executed
+       1*:   38:    assert(stergeTranzactie( repo,0)==0);
+        1:   38-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   38-block  1
+call    3 never executed
+       1*:   39:    assert(l->lungime == 1);
+        1:   39-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   39-block  1
+call    2 never executed
+        1:   40:    tranz=get(l,0);
+        1:   40-block  0
+call    0 returned 1
+       1*:   41:    assert(tranz->ziua == 12);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   41-block  0
+call    2 never executed
+       1*:   42:    assert(tranz->suma == 100.0);
+        1:   42-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   42-block  1
+call    2 never executed
+       1*:   43:    assert(strcmp(tranz->tip, "Intrare") == 0);
+        1:   43-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   43-block  1
+call    2 never executed
+       1*:   44:    assert(strcmp(tranz->descriere, "Paris") == 0);
+        1:   44-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   44-block  1
+call    2 never executed
+        1:   45:    destroyRepo(repo);
+        1:   45-block  0
+call    0 returned 1
+        1:   46:    testrsize();
+call    0 returned 1
+        1:   47:}

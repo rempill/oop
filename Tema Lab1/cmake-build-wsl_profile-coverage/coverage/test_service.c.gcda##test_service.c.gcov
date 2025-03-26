@@ -1,0 +1,267 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Tests/test_service.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/test_service.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Tests/test_service.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 12.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "test_service.h"
+        -:    6:#include <tgmath.h>
+        -:    7:#define TOLERANCE 0.0001
+function runServiceTests called 1 returned 100% blocks executed 69%
+        1:    8:void runServiceTests() {
+        1:    9:    Offer_list* l=createOfferList();
+        1:    9-block  0
+call    0 returned 1
+        -:   10:    float price,new_price;
+        -:   11:    char departure_date[11],type[11],destination[21],new_type[11],new_destination[21],new_departure_date[11];
+        1:   12:    price=-1.0;
+        1:   13:    strcpy(departure_date,"01.01.2026");
+        1:   14:    strcpy(type,"sea side");
+        1:   15:    strcpy(destination,"Hati");
+        1:   16:    int add1=addOffer(type,destination,departure_date,price,l);
+call    0 returned 1
+       1*:   17:    assert(l->length==0 && add1&INVALID_PRICE && add1&VALIDATION_ERROR);//validation error caused by price
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   17-block  0
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   17-block  1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+        1:   17-block  2
+    %%%%%:   17-block  3
+call    6 never executed
+        1:   18:    price=11.1;
+        1:   19:    addOffer(type,destination,departure_date,price,l);
+        1:   19-block  0
+call    0 returned 1
+        1:   20:    int add2=addOffer(type,destination,departure_date,price,l);
+call    0 returned 1
+       1*:   21:    assert(l->length==1 && add2&REPO_ERROR);//repo error caused by duplicate
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   21-block  0
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   21-block  1
+    %%%%%:   21-block  2
+call    4 never executed
+       1*:   22:    assert(strcmp(l->offers[0].type,"sea side")==0);
+        1:   22-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   22-block  1
+call    2 never executed
+       1*:   23:    assert(strcmp(l->offers[0].destination,"Hati")==0);
+        1:   23-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   23-block  1
+call    2 never executed
+        1:   24:    strcpy(new_type,"village");
+        1:   25:    strcpy(new_destination,"Hati");
+        1:   26:    strcpy(new_departure_date,"01.01.2026");
+        1:   27:    new_price=1501.9;
+        1:   28:    int upd1=updateOffer(type,destination,new_type,new_destination,new_departure_date,new_price,l);
+        1:   28-block  0
+call    0 returned 1
+       1*:   29:    assert(strcmp(l->offers[0].type,"sea side")==0 && upd1&INVALID_TYPE && upd1&VALIDATION_ERROR);//validation error caused by type
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   29-block  0
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   29-block  1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+        1:   29-block  2
+    %%%%%:   29-block  3
+call    6 never executed
+        1:   30:    int upd2=updateOffer(new_type,destination,type,new_destination,new_departure_date,new_price,l);
+        1:   30-block  0
+call    0 returned 1
+       1*:   31:    assert(upd2&REPO_ERROR);//repo error caused by non-existent offer
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   31-block  0
+call    2 never executed
+        1:   32:    new_price=1502.1;
+        1:   33:    updateOffer(type,destination,type,new_destination,new_departure_date,new_price,l);
+        1:   33-block  0
+call    0 returned 1
+       1*:   34:    assert(fabs(l->offers[0].price-1502.1)<TOLERANCE);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   34-block  0
+call    2 never executed
+        1:   35:    strcpy(destination,"Bahamas");
+        1:   36:    price=1111.1;
+        1:   37:    addOffer(type,destination,departure_date,price,l);
+        1:   37-block  0
+call    0 returned 1
+        1:   38:    removeOffer(type,new_destination,l);
+call    0 returned 1
+        1:   39:    removeOffer(type,destination,l);
+call    0 returned 1
+       1*:   40:    assert(l->length==0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   40-block  0
+call    2 never executed
+        1:   41:    int rm1=removeOffer(type,new_destination,l);
+        1:   41-block  0
+call    0 returned 1
+       1*:   42:    assert(rm1&REPO_ERROR);//repo error caused by non-existent offer
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   42-block  0
+call    2 never executed
+        1:   43:    addOffer("sea side","Hati","01.01.2026",11.1,l);
+        1:   43-block  0
+call    0 returned 1
+        1:   44:    addOffer("mountain","Caman","05.11.2027",1000.0,l);
+call    0 returned 1
+        1:   45:    addOffer("mountain","Olia","11.01.2025",115.5,l);
+call    0 returned 1
+        1:   46:    Offer_list* sorted=createOfferList();
+call    0 returned 1
+        1:   47:    sortOffersByPrice(l,0,sorted);
+call    0 returned 1
+       1*:   48:    assert(fabs(sorted->offers[0].price-11.1)<TOLERANCE);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   48-block  0
+call    2 never executed
+       1*:   49:    assert(fabs(sorted->offers[1].price-115.5)<TOLERANCE);
+        1:   49-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   49-block  1
+call    2 never executed
+       1*:   50:    assert(fabs(sorted->offers[2].price-1000.0)<TOLERANCE);
+        1:   50-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   50-block  1
+call    2 never executed
+        1:   51:    sortOffersByPrice(l,1,sorted);
+        1:   51-block  0
+call    0 returned 1
+       1*:   52:    assert(fabs(sorted->offers[0].price-1000.0)<TOLERANCE);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   52-block  0
+call    2 never executed
+       1*:   53:    assert(fabs(sorted->offers[1].price-115.5)<TOLERANCE);
+        1:   53-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   53-block  1
+call    2 never executed
+       1*:   54:    assert(fabs(sorted->offers[2].price-11.1)<TOLERANCE);
+        1:   54-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   54-block  1
+call    2 never executed
+        1:   55:    sortOffersByDestination(l,0,sorted);
+        1:   55-block  0
+call    0 returned 1
+       1*:   56:    assert(strcmp(sorted->offers[0].destination,"Caman")==0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   56-block  0
+call    2 never executed
+       1*:   57:    assert(strcmp(sorted->offers[1].destination,"Hati")==0);
+        1:   57-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   57-block  1
+call    2 never executed
+       1*:   58:    assert(strcmp(sorted->offers[2].destination,"Olia")==0);
+        1:   58-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   58-block  1
+call    2 never executed
+        1:   59:    sortOffersByDestination(l,1,sorted);
+        1:   59-block  0
+call    0 returned 1
+       1*:   60:    assert(strcmp(sorted->offers[0].destination,"Olia")==0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   60-block  0
+call    2 never executed
+       1*:   61:    assert(strcmp(sorted->offers[1].destination,"Hati")==0);
+        1:   61-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   61-block  1
+call    2 never executed
+       1*:   62:    assert(strcmp(sorted->offers[2].destination,"Caman")==0);
+        1:   62-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   62-block  1
+call    2 never executed
+        1:   63:    Offer_list* filtered=createOfferList();
+        1:   63-block  0
+call    0 returned 1
+        1:   64:    filterByDestination(l,"Hati",filtered);
+call    0 returned 1
+       1*:   65:    assert(filtered->length==1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   65-block  0
+call    2 never executed
+       1*:   66:    assert(strcmp(filtered->offers[0].destination,"Hati")==0);
+        1:   66-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   66-block  1
+call    2 never executed
+        1:   67:    filterByType(l,"mountain",filtered);
+        1:   67-block  0
+call    0 returned 1
+       1*:   68:    assert(filtered->length==2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   68-block  0
+call    2 never executed
+       1*:   69:    assert(strcmp(filtered->offers[0].type,"mountain")==0);
+        1:   69-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   69-block  1
+call    2 never executed
+       1*:   70:    assert(strcmp(filtered->offers[1].type,"mountain")==0);
+        1:   70-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   70-block  1
+call    2 never executed
+        1:   71:    filterByPrice(l,1000.0,filtered);
+        1:   71-block  0
+call    0 returned 1
+       1*:   72:    assert(filtered->length==1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   72-block  0
+call    2 never executed
+       1*:   73:    assert(fabs(filtered->offers[0].price-1000.0)<TOLERANCE);
+        1:   73-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   73-block  1
+call    2 never executed
+        1:   74:    destroyOfferList(l);
+        1:   74-block  0
+call    0 returned 1
+        1:   75:    destroyOfferList(sorted);
+call    0 returned 1
+        1:   76:    destroyOfferList(filtered);
+call    0 returned 1
+        1:   77:}

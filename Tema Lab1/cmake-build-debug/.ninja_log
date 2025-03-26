@@ -1,0 +1,27 @@
+# ninja log v6
+3	61	7634679990247551	CMakeFiles/Tema_Lab1.dir/Validator/validate_offer.c.obj	5cbd152c2902d421
+13	77	7634662042140849	CMakeFiles/Tema_Lab1.dir/Errors/errors.c.obj	c17dc5f183636d63
+18	106	7634662042188212	CMakeFiles/Tema_Lab1.dir/Controller/service.c.obj	6327b8fe74828c61
+8	86	7634662042088273	CMakeFiles/Tema_Lab1.dir/Repository/repo.c.obj	b08594f316458376
+10	258	7640685209416233	CMakeFiles/Tema_Lab1.dir/main.c.obj	6b182b427a6fd9f4
+11	76	7634662042114553	CMakeFiles/Tema_Lab1.dir/Domain/offer_list.c.obj	510c6b762b6cf88c
+21	109	7634662042219760	CMakeFiles/Tema_Lab1.dir/Ui/console.c.obj	6881d09dd71d9ba5
+141	273	7640686010327942	Tema_Lab1.exe	f61eb653708c86c2
+9	774	7640691825343052	build.ninja	cff53a9a643d4e6
+4	59	7634680082224741	CMakeFiles/Tema_Lab1.dir/Tests/tests.c.obj	92e259da12ce0191
+24	87	7634662042251325	CMakeFiles/Tema_Lab1.dir/Tests/test_domain.c.obj	ce4f5b70b57e6c4
+30	102	7634662042303940	CMakeFiles/Tema_Lab1.dir/Tests/test_repo.c.obj	599b4f5911347055
+7	140	7640686008997487	CMakeFiles/Tema_Lab1.dir/Tests/test_service.c.obj	3287cd9152ee493a
+4	628	7640691825343052	build.ninja	cff53a9a643d4e6
+47	281	7640691826135410	CMakeFiles/Tema_Lab1.dir/Errors/errors.c.obj	2465832a3eee4ab5
+53	286	7640691826188023	CMakeFiles/Tema_Lab1.dir/Validator/validate_offer.c.obj	59680cf5d117e648
+6	321	7640691825717568	CMakeFiles/Tema_Lab1.dir/main.c.obj	fb75b0bea96d8653
+15	322	7640691825817517	CMakeFiles/Tema_Lab1.dir/Domain/offer_list.c.obj	a62e9b0bbce36925
+67	322	7640691826330098	CMakeFiles/Tema_Lab1.dir/Tests/test_domain.c.obj	b94bc39dfa380cce
+73	334	7640691826388016	CMakeFiles/Tema_Lab1.dir/Tests/tests.c.obj	8d33994cee080722
+78	336	7640691826440594	CMakeFiles/Tema_Lab1.dir/Tests/test_repo.c.obj	7e21b27561203d8a
+11	340	7640691825764984	CMakeFiles/Tema_Lab1.dir/Repository/repo.c.obj	e5a37ee379cd53b4
+57	355	7640691826230079	CMakeFiles/Tema_Lab1.dir/Controller/service.c.obj	3b57465989724aa7
+62	362	7640691826282707	CMakeFiles/Tema_Lab1.dir/Ui/console.c.obj	ebb45fe459720c43
+83	386	7640691826493182	CMakeFiles/Tema_Lab1.dir/Tests/test_service.c.obj	36ace66a9e5fbf78
+386	728	7640691829518254	Tema_Lab1.exe	953c043802736b9

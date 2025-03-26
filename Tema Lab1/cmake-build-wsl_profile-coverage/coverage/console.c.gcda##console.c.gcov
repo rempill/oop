@@ -1,0 +1,467 @@
+        -:    0:Source:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/Ui/console.c
+        -:    0:Graph:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Ui/console.c.gcno
+        -:    0:Data:/mnt/c/Users/Mihai/CLionProjects/oop/Tema Lab1/cmake-build-wsl_profile-coverage/CMakeFiles/Tema_Lab1.dir/Ui/console.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by Mihai on 07.03.2025.
+        -:    3://
+        -:    4:
+        -:    5:#include "console.h"
+        -:    6:
+function clearBuffer called 0 returned 0% blocks executed 0%
+    #####:    7:void clearBuffer(char* buffer) {
+    #####:    8:    if (strchr(buffer, '\n') == NULL) {
+    %%%%%:    8-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:    9:        while (getchar() != '\n');
+    %%%%%:    9-block  0
+    %%%%%:    9-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed (fallthrough)
+        -:   10:    }
+    #####:   11:}
+        -:   12:
+function handle called 0 returned 0% blocks executed 0%
+    #####:   13:void handle(int err) {
+    #####:   14:    if (err&INVALID_TYPE) {
+    %%%%%:   14-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   15:        printf("Invalid type\n");
+    %%%%%:   15-block  0
+call    0 never executed
+        -:   16:    }
+    #####:   17:    if (err&INVALID_DESTINATION) {
+    %%%%%:   17-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   18:        printf("Invalid destination\n");
+    %%%%%:   18-block  0
+call    0 never executed
+        -:   19:    }
+    #####:   20:    if (err&INVALID_DATE) {
+    %%%%%:   20-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   21:        printf("Invalid date\n");
+    %%%%%:   21-block  0
+call    0 never executed
+        -:   22:    }
+    #####:   23:    if (err&INVALID_PRICE) {
+    %%%%%:   23-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   24:        printf("Invalid price\n");
+    %%%%%:   24-block  0
+call    0 never executed
+        -:   25:    }
+    #####:   26:    if (err&REPO_ERROR) {
+    %%%%%:   26-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   27:        printf("Repository error\n");
+    %%%%%:   27-block  0
+call    0 never executed
+        -:   28:    }
+    #####:   29:    if (err&VALIDATION_ERROR) {
+    %%%%%:   29-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   30:        printf("Validation error\n");
+    %%%%%:   30-block  0
+call    0 never executed
+        -:   31:    }
+    #####:   32:}
+        -:   33:
+function printMenu called 0 returned 0% blocks executed 0%
+    #####:   34:void printMenu() {
+    #####:   35:    printf("1. Add offer\n");
+    %%%%%:   35-block  0
+call    0 never executed
+    #####:   36:    printf("2. Update offer\n");
+call    0 never executed
+    #####:   37:    printf("3. Remove offer\n");
+call    0 never executed
+    #####:   38:    printf("4. Sort offers\n");
+call    0 never executed
+    #####:   39:    printf("5. Filter offers\n");
+call    0 never executed
+    #####:   40:    printf("6. Print offers\n");
+call    0 never executed
+    #####:   41:    printf("7. Exit\n");
+call    0 never executed
+    #####:   42:}
+        -:   43:
+function printOffers called 0 returned 0% blocks executed 0%
+    #####:   44:void printOffers(Offer_list *l) {
+        -:   45:    int i;
+    #####:   46:    for (i=0;i<l->length;++i) {
+    %%%%%:   46-block  0
+    %%%%%:   46-block  1
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:   47:        printf("Type: %s, Destination: %s, Departure date: %s, Price: %.2f\n",l->offers[i].type,l->offers[i].destination,l->offers[i].departure_date,l->offers[i].price);
+    %%%%%:   47-block  0
+call    0 never executed
+        -:   48:    }
+    #####:   49:}
+        -:   50:
+function inputFloat called 0 returned 0% blocks executed 0%
+    #####:   51:void inputFloat(char message[],float* price) {
+    #####:   52:    int invalid=1;
+        -:   53:    char input[10];
+    #####:   54:    while (invalid) {
+    %%%%%:   54-block  0
+    %%%%%:   54-block  1
+branch  0 never executed
+branch  1 never executed (fallthrough)
+    #####:   55:        printf("%s",message);
+    %%%%%:   55-block  0
+call    0 never executed
+    #####:   56:        fgets(input,10,stdin);
+call    0 never executed
+    #####:   57:        clearBuffer(input);
+call    0 never executed
+    #####:   58:        if (sscanf(input,"%f",price)==1) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   59:            invalid=0;
+    %%%%%:   59-block  0
+        -:   60:        }
+        -:   61:        else {
+    #####:   62:            printf("Invalid input\n");
+    %%%%%:   62-block  0
+call    0 never executed
+        -:   63:        }
+        -:   64:    }
+    #####:   65:}
+        -:   66:
+function addOfferUi called 0 returned 0% blocks executed 0%
+    #####:   67:void addOfferUi(Offer_list *l) {
+        -:   68:    char type[12],destination[22],departure_date[12];
+        -:   69:    float price;
+    #####:   70:    printf("Type:");
+    %%%%%:   70-block  0
+call    0 never executed
+    #####:   71:    fgets(type, 12, stdin);
+call    0 never executed
+    #####:   72:    clearBuffer(type);
+call    0 never executed
+    #####:   73:    type[strlen(type)-1]='\0';
+    #####:   74:    printf("Destination:");
+call    0 never executed
+    #####:   75:    fgets(destination, 22, stdin);
+call    0 never executed
+    #####:   76:    clearBuffer(destination);
+call    0 never executed
+    #####:   77:    destination[strlen(destination)-1]='\0';
+    #####:   78:    printf("Departure date:");
+call    0 never executed
+    #####:   79:    fgets(departure_date, 12, stdin);
+call    0 never executed
+    #####:   80:    clearBuffer(departure_date);
+call    0 never executed
+    #####:   81:    departure_date[strlen(departure_date)-1]='\0';
+    #####:   82:    inputFloat("Price:",&price);
+call    0 never executed
+    #####:   83:    int err=addOffer(type,destination,departure_date,price,l);
+call    0 never executed
+    #####:   84:    if (err==SUCCESS) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   85:        printf("Offer added successfully\n");
+    %%%%%:   85-block  0
+call    0 never executed
+        -:   86:    }
+        -:   87:    else {
+    #####:   88:        handle(err);
+    %%%%%:   88-block  0
+call    0 never executed
+        -:   89:    }
+    #####:   90:}
+        -:   91:
+function updateOfferUi called 0 returned 0% blocks executed 0%
+    #####:   92:void updateOfferUi(Offer_list *l) {
+        -:   93:    char old_type[12], old_destination[22], new_type[12], new_destination[22], new_departure_date[12];
+        -:   94:    float new_price;
+        -:   95:
+    #####:   96:    printf("Old type:");
+    %%%%%:   96-block  0
+call    0 never executed
+    #####:   97:    fgets(old_type, sizeof(old_type), stdin);
+call    0 never executed
+    #####:   98:    old_type[strcspn(old_type, "\n")] = '\0';
+    #####:   99:    clearBuffer(old_type);
+call    0 never executed
+    #####:  100:    printf("Old destination:");
+call    0 never executed
+    #####:  101:    fgets(old_destination, sizeof(old_destination), stdin);
+call    0 never executed
+    #####:  102:    old_destination[strcspn(old_destination, "\n")] = '\0';
+    #####:  103:    clearBuffer(old_destination);
+call    0 never executed
+    #####:  104:    printf("New type:");
+call    0 never executed
+    #####:  105:    fgets(new_type, sizeof(new_type), stdin);
+call    0 never executed
+    #####:  106:    new_type[strcspn(new_type, "\n")] = '\0';
+    #####:  107:    clearBuffer(new_type);
+call    0 never executed
+    #####:  108:    printf("New destination:");
+call    0 never executed
+    #####:  109:    fgets(new_destination, sizeof(new_destination), stdin);
+call    0 never executed
+    #####:  110:    new_destination[strcspn(new_destination, "\n")] = '\0';
+    #####:  111:    clearBuffer(new_destination);
+call    0 never executed
+    #####:  112:    printf("New departure date:");
+call    0 never executed
+    #####:  113:    fgets(new_departure_date, sizeof(new_departure_date), stdin);
+call    0 never executed
+    #####:  114:    new_departure_date[strcspn(new_departure_date, "\n")] = '\0';
+    #####:  115:    clearBuffer(new_departure_date);
+call    0 never executed
+    #####:  116:    inputFloat("New price:",&new_price);
+call    0 never executed
+    #####:  117:    int err=updateOffer(old_type, old_destination, new_type, new_destination, new_departure_date, new_price, l);
+call    0 never executed
+    #####:  118:    if (err!=SUCCESS) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  119:        handle(err);
+    %%%%%:  119-block  0
+call    0 never executed
+        -:  120:    }
+        -:  121:    else {
+    #####:  122:        printf("Offer updated successfully\n");
+    %%%%%:  122-block  0
+call    0 never executed
+        -:  123:    }
+    #####:  124:}
+        -:  125:
+function removeOfferUi called 0 returned 0% blocks executed 0%
+    #####:  126:void removeOfferUi(Offer_list *l) {
+        -:  127:    char type[12],destination[22];
+    #####:  128:    printf("Type:");
+    %%%%%:  128-block  0
+call    0 never executed
+    #####:  129:    fgets(type, sizeof(type), stdin);
+call    0 never executed
+    #####:  130:    type[strcspn(type, "\n")] = '\0';
+    #####:  131:    clearBuffer(type);
+call    0 never executed
+    #####:  132:    printf("Destination:");
+call    0 never executed
+    #####:  133:    fgets(destination, sizeof(destination), stdin);
+call    0 never executed
+    #####:  134:    destination[strcspn(destination, "\n")] = '\0';
+    #####:  135:    clearBuffer(destination);
+call    0 never executed
+    #####:  136:    int err=removeOffer(type,destination,l);
+call    0 never executed
+    #####:  137:    if (err!=SUCCESS) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  138:        handle(err);
+    %%%%%:  138-block  0
+call    0 never executed
+        -:  139:    }
+        -:  140:    else {
+    #####:  141:        printf("Offer removed successfully\n");
+    %%%%%:  141-block  0
+call    0 never executed
+        -:  142:    }
+    #####:  143:}
+        -:  144:
+function sortOfferMenu called 0 returned 0% blocks executed 0%
+    #####:  145:void sortOfferMenu(Offer_list *l) {
+        -:  146:    char* command[2];
+        -:  147:    char* asc_desc[1];
+    #####:  148:    printf("1. Sort by price\n");
+    %%%%%:  148-block  0
+call    0 never executed
+    #####:  149:    printf("2. Sort by destination\n");
+call    0 never executed
+    #####:  150:    scanf("%s",command);
+call    0 never executed
+    #####:  151:    clearBuffer(command);
+call    0 never executed
+    #####:  152:    printf("1. Ascending\n2. Descending\n");
+call    0 never executed
+    #####:  153:    scanf("%s",asc_desc);
+call    0 never executed
+    #####:  154:    clearBuffer(asc_desc);
+call    0 never executed
+    #####:  155:    Offer_list* sorted=createOfferList();
+call    0 never executed
+    #####:  156:    if (!strcmp(command,"1")) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  157:        sortOffersByPrice(l,strcmp(asc_desc,"1"),sorted);
+    %%%%%:  157-block  0
+call    0 never executed
+    #####:  158:        printOffers(sorted);
+call    0 never executed
+        -:  159:    }
+    #####:  160:    else if (!strcmp(command,"2")) {
+    %%%%%:  160-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  161:        sortOffersByDestination(l,strcmp(asc_desc,"1"),sorted);
+    %%%%%:  161-block  0
+call    0 never executed
+    #####:  162:        printOffers(sorted);
+call    0 never executed
+        -:  163:    }
+        -:  164:    else {
+    #####:  165:        printf("Invalid command\n");
+    %%%%%:  165-block  0
+call    0 never executed
+        -:  166:    }
+    #####:  167:    destroyOfferList(sorted);
+    %%%%%:  167-block  0
+call    0 never executed
+    #####:  168:}
+        -:  169:
+function filterOfferMenu called 0 returned 0% blocks executed 0%
+    #####:  170:void filterOfferMenu(Offer_list *l) {
+        -:  171:    char* command[2];
+    #####:  172:    printf("1. Filter by destination\n2. Filter by type\n3. Filter by price\n");
+    %%%%%:  172-block  0
+call    0 never executed
+    #####:  173:    scanf("%s",command);
+call    0 never executed
+    #####:  174:    clearBuffer(command);
+call    0 never executed
+    #####:  175:    Offer_list* filtered=createOfferList();
+call    0 never executed
+    #####:  176:    if (!strcmp(command,"1")) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+        -:  177:        char destination[22];
+    #####:  178:        printf("Destination:");
+    %%%%%:  178-block  0
+call    0 never executed
+    #####:  179:        fgets(destination, sizeof(destination), stdin);
+call    0 never executed
+    #####:  180:        destination[strcspn(destination, "\n")] = '\0';
+    #####:  181:        clearBuffer(destination);
+call    0 never executed
+    #####:  182:        filterByDestination(l,destination,filtered);
+call    0 never executed
+    #####:  183:        printOffers(filtered);
+call    0 never executed
+        -:  184:    }
+    #####:  185:    else if (!strcmp(command,"2")) {
+    %%%%%:  185-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+        -:  186:        char type[12];
+    #####:  187:        printf("Type:");
+    %%%%%:  187-block  0
+call    0 never executed
+    #####:  188:        fgets(type, sizeof(type), stdin);
+call    0 never executed
+    #####:  189:        type[strcspn(type, "\n")] = '\0';
+    #####:  190:        clearBuffer(type);
+call    0 never executed
+    #####:  191:        filterByType(l,type,filtered);
+call    0 never executed
+    #####:  192:        printOffers(filtered);
+call    0 never executed
+        -:  193:    }
+    #####:  194:    else if (!strcmp(command,"3")) {
+    %%%%%:  194-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+        -:  195:        float price;
+    #####:  196:        inputFloat("Price:",&price);
+    %%%%%:  196-block  0
+call    0 never executed
+    #####:  197:        filterByPrice(l,price,filtered);
+call    0 never executed
+    #####:  198:        printOffers(filtered);
+call    0 never executed
+        -:  199:    }
+        -:  200:    else {
+    #####:  201:        printf("Invalid command\n");
+    %%%%%:  201-block  0
+call    0 never executed
+        -:  202:    }
+    #####:  203:    destroyOfferList(filtered);
+    %%%%%:  203-block  0
+call    0 never executed
+    #####:  204:}
+        -:  205:
+function run called 0 returned 0% blocks executed 0%
+    #####:  206:void run(Offer_list *l) {
+    %%%%%:  206-block  0
+        -:  207:    char cmd[2];
+        -:  208:    while (1) {
+    #####:  209:        printMenu();
+    %%%%%:  209-block  0
+call    0 never executed
+    #####:  210:        printf(">>");
+call    0 never executed
+    #####:  211:        scanf("%s",cmd);
+call    0 never executed
+    #####:  212:        clearBuffer(cmd);
+call    0 never executed
+    #####:  213:        if (!strcmp(cmd,"1")) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  214:            addOfferUi(l);
+    %%%%%:  214-block  0
+call    0 never executed
+        -:  215:        }
+    #####:  216:        else if (!strcmp(cmd,"2")) {
+    %%%%%:  216-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  217:            updateOfferUi(l);
+    %%%%%:  217-block  0
+call    0 never executed
+        -:  218:        }
+    #####:  219:        else if (!strcmp(cmd,"3")) {
+    %%%%%:  219-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  220:            removeOfferUi(l);
+    %%%%%:  220-block  0
+call    0 never executed
+        -:  221:        }
+    #####:  222:        else if (!strcmp(cmd,"4")) {
+    %%%%%:  222-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  223:            sortOfferMenu(l);
+    %%%%%:  223-block  0
+call    0 never executed
+        -:  224:        }
+    #####:  225:        else if (!strcmp(cmd,"5")) {
+    %%%%%:  225-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  226:            filterOfferMenu(l);
+    %%%%%:  226-block  0
+call    0 never executed
+        -:  227:        }
+    #####:  228:        else if (!strcmp(cmd,"6")) {
+    %%%%%:  228-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  229:            printOffers(l);
+    %%%%%:  229-block  0
+call    0 never executed
+        -:  230:        }
+    #####:  231:        else if (!strcmp(cmd,"7")) {
+    %%%%%:  231-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  232:            break;
+    %%%%%:  232-block  0
+        -:  233:        }
+        -:  234:    }
+    #####:  235:}
