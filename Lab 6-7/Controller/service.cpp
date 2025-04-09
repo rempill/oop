@@ -32,9 +32,9 @@ void Service::modify(const int ap, const std::string& name, const int new_ap, co
     throw ValidatorError(valid.valid_ap(ap)+valid.valid_name(name));
 }
 
-std::vector<Locatar> Service::getAll() const {
-    std::vector<Locatar> locatari = repo.getAll();
-    if (locatari.size()==0) {
+LinkedList<Locatar> Service::getAll() const {
+    LinkedList<Locatar> locatari = repo.getAll();
+    if (locatari.getSize()==0) {
         throw ServiceError("No locatari in the repository!\n");
     }
     return locatari;
@@ -42,25 +42,25 @@ std::vector<Locatar> Service::getAll() const {
 
 Locatar Service::search(const int ap, const std::string& name) const {
     if (valid.valid_ap(ap).empty() && valid.valid_name(name).empty()) {
-        const int poz = repo.search(ap, name);
-        if (poz == -1) {
+        const auto poz = repo.search(ap, name);
+        if (poz == repo.getAll().end()) {
             throw ServiceError("Locatar not found!\n");
         }
-        return repo.getAll()[poz];
+        return *poz;
     }
     throw ValidatorError(valid.valid_ap(ap)+valid.valid_name(name));
 }
 
-std::vector<Locatar> Service::filter_area(const float area) const {
+LinkedList<Locatar> Service::filter_area(const float area) const {
     if (valid.valid_area(area).empty()) {
-        std::vector<Locatar> locatari = repo.getAll();
-        std::vector<Locatar> result;
+        LinkedList<Locatar> locatari = repo.getAll();
+        LinkedList<Locatar> result;
         for (const auto& locatar : locatari) {
             if (locatar.getArea() == area) {
                 result.push_back(locatar);
             }
         }
-        if (result.empty()) {
+        if (result.getSize()==0) {
             throw ServiceError("No locatari with the given area!\n");
         }
         return result;
@@ -68,16 +68,16 @@ std::vector<Locatar> Service::filter_area(const float area) const {
     throw ValidatorError(valid.valid_area(area));
 }
 
-std::vector<Locatar> Service::filter_type(const std::string& type) const {
+LinkedList<Locatar> Service::filter_type(const std::string& type) const {
     if (valid.valid_type(type).empty()) {
-        std::vector<Locatar> locatari = repo.getAll();
-        std::vector<Locatar> result;
+        LinkedList<Locatar> locatari = repo.getAll();
+        LinkedList<Locatar> result;
         for (const auto& locatar : locatari) {
             if (locatar.getApType() == type) {
                 result.push_back(locatar);
             }
         }
-        if (result.empty()) {
+        if (result.getSize()==0) {
             throw ServiceError("No locatari with the given type!\n");
         }
         return result;
@@ -85,26 +85,29 @@ std::vector<Locatar> Service::filter_type(const std::string& type) const {
     throw ValidatorError(valid.valid_type(type));
 }
 
-std::vector<Locatar> Service::sort_name() const {
-    std::vector<Locatar> locatari = repo.getAll();
-    std::ranges::sort(locatari, [](const Locatar& locatar1, const Locatar& locatar2) {
-        return locatar1.getName() < locatar2.getName();
+LinkedList<Locatar> Service::sort_name() const {
+    LinkedList<Locatar> locatari = repo.getAll();
+    locatari.sort([](const Locatar& a, const Locatar& b) {
+        return a.getName() < b.getName();
     });
     return locatari;
 }
 
-std::vector<Locatar> Service::sort_area() const {
-    std::vector<Locatar> locatari = repo.getAll();
-    std::ranges::sort(locatari, [](const Locatar& locatar1, const Locatar& locatar2) {
-        return locatar1.getArea() < locatar2.getArea();
+LinkedList<Locatar> Service::sort_area() const {
+    LinkedList<Locatar> locatari = repo.getAll();
+    locatari.sort([](const Locatar& a, const Locatar& b) {
+        return a.getArea() < b.getArea();
     });
     return locatari;
 }
 
-std::vector<Locatar> Service::sort_type_area() const {
-    std::vector<Locatar> locatari = repo.getAll();
-    std::ranges::sort(locatari, [](const Locatar& locatar1, const Locatar& locatar2) {
-        return locatar1.getApType() < locatar2.getApType() || (locatar1.getApType() == locatar2.getApType() && locatar1.getArea() < locatar2.getArea());
+LinkedList<Locatar> Service::sort_type_area() const {
+    LinkedList<Locatar> locatari = repo.getAll();
+    locatari.sort([](const Locatar& a, const Locatar& b) {
+        if (a.getApType() == b.getApType()) {
+            return a.getArea() < b.getArea();
+        }
+        return a.getApType() < b.getApType();
     });
     return locatari;
 }

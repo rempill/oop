@@ -20,4 +20,8 @@ add_executable(Lab_6_7 main.cpp
         UI/console.cpp
         UI/console.h
         Utils/tools.cpp
-        Utils/tools.h)
+        Utils/tools.h
+        Tests/tests.cpp
+        Tests/tests.h
+        Domain/linked_list.h
+)

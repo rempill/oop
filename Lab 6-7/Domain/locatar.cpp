@@ -25,6 +25,7 @@ Locatar& Locatar::operator=(const Locatar& rhs) {
     this->area = rhs.area;
     this->name = rhs.name;
     this->ap_type = rhs.ap_type;
+    std::cout<<"operator= called\n";
     return *this;
 }
 
@@ -37,6 +38,7 @@ Locatar::Locatar(const Locatar& locatar) {
     this->area = locatar.area;
     this->name = locatar.name;
     this->ap_type = locatar.ap_type;
+    std::cout<<"copy constructor called\n";
 }
 
 int Locatar::getAp() const {
@@ -55,20 +57,22 @@ const std::string& Locatar::getApType() const {
     return this->ap_type;
 }
 
-void Locatar::setAp(int ap) {
+void Locatar::setAp(const int ap) {
     this->ap = ap;
 }
 
-void Locatar::setArea(float area) {
+void Locatar::setArea(const float area) {
     this->area = area;
 }
 
-void Locatar::setName(std::string name) {
-    this->name = std::move(name);
+void Locatar::setName(const std::string& name) {
+    this->name = name;
 }
 
-void Locatar::setApType(std::string ap_type) {
-    this->ap_type = std::move(ap_type);
+void Locatar::setApType(const std::string& ap_type) {
+    this->ap_type = ap_type;
 }
 
-Locatar::~Locatar() = default;
+Locatar::~Locatar() {
+    std::cout<<"destructor called\n";
+}

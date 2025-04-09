@@ -3,46 +3,42 @@
 //
 #include "repo.h"
 using namespace std;
-Repo::Repo(const vector<Locatar>& locatari) {
+Repo::Repo(const LinkedList<Locatar>& locatari) {
     this->locatari = locatari;
 }
 
-vector<Locatar> Repo::getAll(){
-    return this->locatari;
+LinkedList<Locatar> Repo::getAll(){
+    return LinkedList{locatari};
 }
 
 void Repo::add(const Locatar& locatar){
-    if (search(locatar.getAp(), locatar.getName()) != -1) {
+    if (search(locatar.getAp(), locatar.getName()) != LinkedList<Locatar>::end()) {
         throw RepoError("Locatar already exists!");
     }
     this->locatari.push_back(locatar);
 }
 
-void Repo::del(int ap, std::string name) {
-    const int poz=search(ap, name);
-    if (poz == -1) {
+void Repo::del(const int ap, const std::string& name) {
+    const auto it=search(ap, name);
+    if (it == LinkedList<Locatar>::end()) {
         throw RepoError("Locatar not found!");
     }
-    this->locatari.erase(this->locatari.begin() + poz);
+    this->locatari.erase(it);
 }
 
-int Repo::search(int ap, std::string name) const {
-    for (int i = 0; i < this->locatari.size(); i++) {
-        if (this->locatari[i].getAp() == ap && this->locatari[i].getName() == name) {
-            return i;
+LinkedList<Locatar>::iterator Repo::search(const int ap, const std::string & name) const {
+    for (auto it=locatari.begin(); it!=LinkedList<Locatar>::end(); ++it) {
+        if (it->getName() == name && it->getAp() == ap) {
+            return it;
         }
     }
-    return -1;
+    return LinkedList<Locatar>::end();
 }
 
-void Repo::modify(const int ap, const std::string& name, const Locatar& locatar) {
-    const int poz = search(ap, name);
-    if (poz == -1) {
+void Repo::modify(const int ap, const std::string& name, const Locatar& locatar) const {
+    const auto it = search(ap, name);
+    if (it == LinkedList<Locatar>::end()) {
         throw RepoError("Locatar not found!");
     }
-    this->locatari[poz] = locatar;
-}
-
-Repo::~Repo() {
-    this->locatari.clear();
+    *it = locatar;
 }

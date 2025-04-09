@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 class Locatar {
 private:
     int ap;
@@ -15,7 +16,6 @@ public:
 
     //equality operator
     bool operator==(const Locatar& locatar) const noexcept;
-    // ^ cand si unde doamne folosesc eu noexcept pls imi help
 
     //copy constructor
     Locatar(const Locatar& locatar);
@@ -29,8 +29,8 @@ public:
     //setters
     void setAp(int ap);
     void setArea(float area);
-    void setName(std::string name);
-    void setApType(std::string ap_type);
+    void setName(const std::string& name);
+    void setApType(const std::string& ap_type);
 
     //destructor
     ~Locatar();
