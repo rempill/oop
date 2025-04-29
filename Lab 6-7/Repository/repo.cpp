@@ -3,42 +3,54 @@
 //
 #include "repo.h"
 using namespace std;
-Repo::Repo(const LinkedList<Locatar>& locatari) {
+Repo::Repo(const vector<Locatar>& locatari) {
     this->locatari = locatari;
 }
 
-LinkedList<Locatar> Repo::getAll(){
-    return LinkedList{locatari};
+vector<Locatar> Repo::getAll(){
+    return this->locatari;
 }
 
 void Repo::add(const Locatar& locatar){
-    if (search(locatar.getAp(), locatar.getName()) != LinkedList<Locatar>::end()) {
-        throw RepoError("Locatar already exists!");
+    try {
+     auto found=search(locatar.getAp(),locatar.getName());
+    } catch (const RepoError&) {
+        this->locatari.push_back(locatar);
+        return;
     }
-    this->locatari.push_back(locatar);
+    throw RepoError("Locatar already exists!");
 }
 
 void Repo::del(const int ap, const std::string& name) {
-    const auto it=search(ap, name);
-    if (it == LinkedList<Locatar>::end()) {
+    auto const inSize= this->locatari.size();
+    auto it=ranges::remove_if(this->locatari, [ap, name](const Locatar& locatar) {
+        return locatar.getAp() == ap && locatar.getName() == name;
+    });
+    this->locatari.erase(it.begin(), this->locatari.end());
+    if (this->locatari.size() == inSize) {
         throw RepoError("Locatar not found!");
     }
-    this->locatari.erase(it);
 }
 
-LinkedList<Locatar>::iterator Repo::search(const int ap, const std::string & name) const {
-    for (auto it=locatari.begin(); it!=LinkedList<Locatar>::end(); ++it) {
-        if (it->getName() == name && it->getAp() == ap) {
-            return it;
-        }
+Locatar Repo::search(const int ap, const std::string& name) const {
+    const auto it= ranges::find_if(this->locatari, [ap,name](const Locatar& locatar) {
+        return locatar.getAp() == ap && locatar.getName() == name;
+    });
+
+    if (it!=this->locatari.end()) {
+        return *it;
     }
-    return LinkedList<Locatar>::end();
+
+    throw RepoError("Locatar not found!");
 }
 
-void Repo::modify(const int ap, const std::string& name, const Locatar& locatar) const {
-    const auto it = search(ap, name);
-    if (it == LinkedList<Locatar>::end()) {
+void Repo::modify(const int ap, const std::string& name, const Locatar& locatar) {
+    auto it= ranges::find_if(this->locatari, [ap,name](const Locatar& locatar) {
+        return locatar.getAp() == ap && locatar.getName() == name;
+    });
+    if (it!=this->locatari.end()) {
+        *it=locatar;
+    } else {
         throw RepoError("Locatar not found!");
     }
-    *it = locatar;
 }

@@ -3,13 +3,14 @@
 #include <iostream>
 #include <limits>
 #include <ios>
+#include <fstream>
 class Console {
     friend class Service;
 private:
-    Service service;
+    Service& service;
 
     //add a new locatar
-    void add() const;
+    void add();
 
     //delete a locatar
     void del();
@@ -43,9 +44,28 @@ private:
 
     //runs sort
     void ui_sort() const;
+
+    //clears notifications
+    void clear_notifications() const;
+
+    //adds notification
+    void add_notification() const;
+
+    //generates random list using existing apartments
+    void generate_random_notifications() const;
+
+    //surveys the notifications
+    void get_survey() const;
+
+    //undo
+    void undo() const;
+
+    //export to html
+    void export_html() const;
+
 public:
     //constructor
-    explicit Console(const Service& service) : service(service) {}
+    explicit Console(Service& service) : service(service) {}
 
     //runs console
     void run();

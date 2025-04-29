@@ -6,6 +6,7 @@ void Tests::test() {
     test_repo();
     test_service();
     test_validator();
+    test_notification();
 }
 
 void Tests::test_domain() {
@@ -55,10 +56,10 @@ void Tests::test_validator() {
 
 void Tests::test_repo() {
     auto repo=Repo();
-    assert(repo.getAll().isEmpty());
+    assert(repo.getAll().empty());
     auto locatar=Locatar(1, "Mihai", 11.1, "1 camera");
     repo.add(locatar);
-    assert(repo.getAll().getSize()==1);
+    assert(repo.getAll().size()==1);
     // assert(repo.getAll()[0]==locatar);
     // auto locatar1=Locatar(2, "Dani", 25, "penthouse");
     // repo.add(locatar1);
@@ -91,7 +92,8 @@ void Tests::test_repo() {
 }
 
 void Tests::test_service() {
-    auto repo=Repo();
+    vector<Locatar> locatars;
+    auto repo=Repo(locatars);
     constexpr auto valid=Valid();
     auto service=Service(repo, valid);
     try {
@@ -102,11 +104,11 @@ void Tests::test_service() {
     }
     auto locatar=Locatar(1, "Mihai", 11.1, "1 camera");
     service.add(1, "Mihai", 11.1, "1 camera");
-    assert(service.getAll().getSize()==1);
+    assert(service.getAll().size()==1);
     assert(service.search(1,"Mihai")==locatar);
     auto locatar1=Locatar(2, "Dani", 25, "penthouse");
     service.add(2, "Dani", 25, "penthouse");
-    assert(service.getAll().getSize()==2);
+    assert(service.getAll().size()==2);
     try {
         service.add(1, "Mihai", 11.1, "1 camera");
         assert(false);
@@ -123,7 +125,7 @@ void Tests::test_service() {
     try {
         auto l=service.search(4,"Mihai");
         assert(false);
-    } catch (const ServiceError&) {
+    } catch (const RepoError&) {
         assert(true);
     }
     try {
@@ -139,7 +141,7 @@ void Tests::test_service() {
         assert(true);
     }
     auto filtered=service.filter_area(25);
-    assert(filtered.getSize()==1);
+    assert(filtered.size()==1);
     auto it=filtered.begin();
     assert(*it==locatar1);
     try {
@@ -155,29 +157,29 @@ void Tests::test_service() {
         assert(true);
     }
     auto filtered1=service.filter_type("penthouse");
-    assert(filtered1.getSize()==1);
+    assert(filtered1.size()==1);
     auto it1=filtered1.begin();
     assert(*it1==locatar1);
     auto sorted1=service.sort_area();
-    assert(sorted1.getSize()==2);
+    assert(sorted1.size()==2);
     auto it2=sorted1.begin();
     assert(*it2==locatar);
     ++it2;
     assert(*it2==locatar1);
     auto sorted2=service.sort_name();
-    assert(sorted2.getSize()==2);
+    assert(sorted2.size()==2);
     auto it3=sorted2.begin();
     assert(*it3==locatar1);
     ++it3;
     assert(*it3==locatar);
     auto sorted3=service.sort_type_area();
-    assert(sorted3.getSize()==2);
+    assert(sorted3.size()==2);
     auto it4=sorted3.begin();
     assert(*it4==locatar);
     ++it4;
     assert(*it4==locatar1);
     service.del(1, "Mihai");
-    assert(service.getAll().getSize()==1);
+    assert(service.getAll().size()==1);
     try {
         service.del(1, "Mihai");
         assert(false);
@@ -202,6 +204,50 @@ void Tests::test_service() {
         service.modify(0,"Mihai",3,"Draxem",50,"3 camere");
         assert(false);
     } catch (const ValidatorError&) {
+        assert(true);
+    }
+    service.add(1, "Mihai", 11.1, "3 camere");
+    service.add(2, "Dani", 25, "penthouse");
+    auto map=service.get_survey();
+    assert(map.size()==2);
+    assert(map["3 camere"]==2);
+    assert(map["penthouse"]==1);
+}
+
+void Tests::test_notification() {
+    auto repo=Repo();
+    constexpr auto valid=Valid();
+    auto service=Service(repo, valid);
+    assert(service.clear_notifications()==0);
+    try {
+        service.add_notification(-1);
+        assert(false);
+    } catch (const ServiceError&) {
+        assert(true);
+    }
+    try {
+        service.generate_random_notifications(5);
+        assert(false);
+    } catch (const ServiceError&) {
+        assert(true);
+    }
+    service.add(1, "Mihai", 11.1, "1 camera");
+    service.add(2, "Dani", 25, "penthouse");
+    service.add(3, "Draxem", 50, "3 camere");
+    assert(service.add_notification(1)==1);
+    assert(service.add_notification(2)==2);
+    assert(service.clear_notifications()==0);
+    assert(service.generate_random_notifications(2)==2);
+    try {
+        service.add_notification(5);
+        assert(false);
+    } catch (const ServiceError&) {
+        assert(true);
+    }
+    try {
+        service.generate_random_notifications(5);
+        assert(false);
+    } catch (const ServiceError&) {
         assert(true);
     }
 }

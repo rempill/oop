@@ -24,4 +24,7 @@ add_executable(Lab_6_7 main.cpp
         Tests/tests.cpp
         Tests/tests.h
         Domain/linked_list.h
+        Repository/notifications.cpp
+        Repository/notifications.h
+        Undo/undo_action.h
 )

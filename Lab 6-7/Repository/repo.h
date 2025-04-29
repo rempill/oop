@@ -4,18 +4,21 @@
 
 #pragma once
 #include "locatar.h"
-#include "linked_list.h"
+//#include "linked_list.h"
+#include <vector>
 #include <errors.h>
+#include <algorithm>
+using std::vector;
 class Repo {
 private:
-    LinkedList <Locatar> locatari;
+    vector <Locatar> locatari;
 public:
     //constructor
     Repo() = default;
-    explicit Repo(const LinkedList<Locatar>& locatari);
+    explicit Repo(const vector<Locatar>& locatari);
 
     //getter
-    LinkedList<Locatar> getAll();
+    vector<Locatar> getAll();
 
     //add a new locatar
     void add(const Locatar&);
@@ -24,10 +27,10 @@ public:
     void del(int ap, const std::string& name);
 
     //modify a locatar
-    void modify(int ap, const std::string& name, const Locatar&) const;
+    void modify(int ap, const std::string& name, const Locatar&);
 
     //search apartment
-    [[nodiscard]] LinkedList<Locatar>::iterator search(int ap, const std::string &name) const;
+    [[nodiscard]] Locatar search(int ap, const std::string &name) const;
 
     //destructor
     ~Repo()=default;

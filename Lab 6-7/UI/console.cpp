@@ -7,7 +7,7 @@
 #include "tools.h"
 using namespace std;
 
-void Console::add() const {
+void Console::add() {
     string name, ap_type;
     const int ap = getValidatedInt("Apartment number: ");
     cout << "Name: "; getline(cin, name);
@@ -99,9 +99,60 @@ void Console::sort_type_area() const {
     }
 }
 
+void Console::clear_notifications() const {
+    service.clear_notifications();
+    cout << "Notifications cleared!\nNumber of notifications: 0";
+}
+
+void Console::add_notification() const {
+    const int ap = getValidatedInt("Apartment number: ");
+    auto const count=service.add_notification(ap);
+    cout<<"Number of notifications: "<<count<<endl;
+}
+
+void Console::generate_random_notifications() const {
+    const int count = getValidatedInt("Number of notifications: ");
+    auto const notif_count=service.generate_random_notifications(count);
+    cout << "Number of notifications: " << notif_count << endl;
+}
+
+void Console::get_survey() const {
+    auto map=service.get_survey();
+    cout << "Notifications:\n";
+    for (const auto& [type, count] : map) {
+        cout << type << ": " << count << endl;
+    }
+}
+
+void Console::undo() const {
+    service.undo();
+}
+
+void Console::export_html() const {
+    cout<<"Enter the file name: ";
+    string nume_fisier;
+    getline(cin, nume_fisier);
+    ofstream fout(nume_fisier + ".html");
+    if (!fout.is_open()) {
+        cout << "Could not open file for writing!\n";
+        return;
+    }
+    fout.clear();
+    fout << "<html>";
+    fout << "<style> p {text-align: center;} body{background-color: #E6E6FA;} </style>";
+    fout << "<body>";
+    fout << "<big><big><p><big><b>Apartment No. &nbsp;&nbsp; Name &nbsp;&nbsp; Area &nbsp;&nbsp; Apt. type</b></big><br>";
+    for (auto& x : service.get_notifications()) {
+        fout << x.getAp() << "&nbsp;&nbsp;&nbsp;&nbsp;" << x.getName() << "&nbsp;&nbsp;&nbsp;&nbsp;" << x.getArea()<< "&nbsp;&nbsp;&nbsp;&nbsp;" << x.getApType()<< "<br>";
+    }
+    fout << "</p></big></big></body>";
+    fout << "<html>";
+}
+
+
 void Console::run() {
     while (true) {
-        cout<<"1. Add a new locatar\n2. Delete a locatar\n3. Modify a locatar\n4. Print all locatari\n5. Search apartment\n6. Filter\n7. Sort\n0. Exit\n";
+        cout<<"1. Add a new locatar\n2. Delete a locatar\n3. Modify a locatar\n4. Print all locatari\n5. Search apartment\n6. Filter\n7. Sort\n8. Add notification\n9. Clear notifications\n10. Generate notifications\n11. Get survey\n12. Undo\n13. Export to html\n0. Exit\n";
         int cmd; cin >> cmd;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         try {
@@ -113,6 +164,12 @@ void Console::run() {
                 case 5: search(); break;
                 case 6: ui_filter(); break;
                 case 7: ui_sort(); break;
+                case 8: add_notification(); break;
+                case 9: clear_notifications(); break;
+                case 10: generate_random_notifications(); break;
+                case 11: get_survey(); break;
+                case 12: undo(); break;
+                case 13: export_html(); break;
                 case 0: return;
                 default: cout << "Invalid command!\n"; break;
             }
